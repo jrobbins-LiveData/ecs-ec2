@@ -50,3 +50,5 @@ docker build -t mywebapp2 .
 docker run -p 8080:80 mywebapp2
 # open http://localhost:8080/ in your browser
 #
+
+cdk deploy

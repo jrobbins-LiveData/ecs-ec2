@@ -41,5 +41,6 @@ class EcsEc2Stack(cdk.Stack):
           public_load_balancer=True
         )
 
+        cdk.CfnOutput(self, 'ContainerRepository', value=repository.repository_uri)
         cdk.CfnOutput(self, 'ClusterArn', value=load_balanced_service.cluster.cluster_arn)
         cdk.CfnOutput(self, 'DnsName', value=load_balanced_service.load_balancer.load_balancer_dns_name)
