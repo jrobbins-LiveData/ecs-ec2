@@ -1,4 +1,14 @@
+# references:
+# [1] simple dotnet web app
+# https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/run
+# [2] howto dockerize dotnet app
+# https://docs.docker.com/engine/examples/dotnetcore/
+# [3] CDK ecs pattern ApplicationLoadBalancedServiceBase
+# https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_ecs_patterns/ApplicationLoadBalancedServiceBase.html#aws_cdk.aws_ecs_patterns.ApplicationLoadBalancedServiceBase
+# [4] typescript example of using ApplicationLoadBalancedServiceBase 
 # https://blog.kylegalbraith.com/2019/10/24/how-to-run-docker-containers-via-aws-elastic-container-service/
+# 
+#
 # assumes cdk --version 1.97.0 or higher
 
 md ecs-ec2
