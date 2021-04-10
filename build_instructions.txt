@@ -41,8 +41,9 @@ git push
 
 cd ecs_ec2
 dotnet new webApp -o myWebApp --no-https
+dotnet new gitignore
 
-# added Dockerfile and .dockerignore to myWebApp folder
+# added manually created Dockerfile and .dockerignore to myWebApp folder
 #
 # test locally
 docker build -t mywebapp2 .
