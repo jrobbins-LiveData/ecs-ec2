@@ -4,16 +4,22 @@ from aws_cdk import aws_ecr as ecr
 from aws_cdk import aws_ecs as ecs
 from aws_cdk import aws_ecs_patterns as ecs_patterns
 from aws_cdk import core as cdk
+from aws_cdk.aws_ecr_assets import DockerImageAsset
+from os import path
 
 
 class EcsEc2Stack(cdk.Stack):
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # ECR repository
-        repository = ecr.Repository(self, 'myWebApp',
-          repository_name='myWebApp'
+        # Docker build
+        this_dir = path.dirname(__file__)
+        asset = DockerImageAsset(self, "myWebAppImage",
+          directory=path.join(this_dir, 'myWebApp')
         )
+
+        # ECR repository
+        repository = asset.repository
 
         # ECS cluster/resources
         cluster = ecs.Cluster(self, 'myWebApp-cluster',
@@ -23,20 +29,20 @@ class EcsEc2Stack(cdk.Stack):
         # https://aws.amazon.com/ec2/graviton/
         # Free trial until June 30th 2021
         cluster.add_capacity('myWebApp-scaling-group',
-          instance_type=ec2.InstanceType('t4g.micro'),
+          instance_type=ec2.InstanceType('t2.micro'), # TODO 't4g.micro'
           desired_capacity=1
         )
 
         # https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_ecs_patterns/ApplicationLoadBalancedEc2Service.html
         load_balanced_service = ecs_patterns.ApplicationLoadBalancedEc2Service(self, 'myWebApp-service',
-          cpu=256,
-          memory_limit_mib=512,
+          cpu=256, # TODO
+          memory_limit_mib=512, # TODO
           cluster=cluster,
           desired_count=1,
           service_name='myWebApp-service',
           task_image_options={
             "image": ecs.ContainerImage.from_ecr_repository(repository),
-            "container_port": 8080,
+            # "container_port": 8080, # TODO
           },
           public_load_balancer=True
         )

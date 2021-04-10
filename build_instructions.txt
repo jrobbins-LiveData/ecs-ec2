@@ -52,3 +52,10 @@ docker run -p 8080:80 mywebapp2
 #
 
 cdk deploy
+
+# NOTE: I tried to take advantage of free use of Graviton2 chips 
+# (until June 30th 2021)
+# via instance_type=ec2.InstanceType('t4g.micro')
+# but don't know how to specify that hardware platform or even if that is possible
+# and after a ONE HOUR wait during deployment, saw this error!
+# 45/53 | 3:02:14 PM | CREATE_FAILED        | AWS::AutoScaling::AutoScalingGroup        | myWebApp-cluster/myWebApp-scaling-group/ASG (myWebAppclustermyWebAppscalinggroupASG878D8358) Group did not stabilize. {current/minSize/maxSize} group size = {0/1/1}. Failed Scaling Activity: The architecture 'arm64' of the specified instance type does not match the architecture 'x86_64' of the specified AMI. Specify an instance type and an AMI that have matching architectures, and try again. You can use 'describe-instance-types' or 'describe-images' to discover the architecture of the instance type or AMI. Launching EC2 instance failed.
