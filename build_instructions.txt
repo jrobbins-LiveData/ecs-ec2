@@ -1,0 +1,22 @@
+# https://blog.kylegalbraith.com/2019/10/24/how-to-run-docker-containers-via-aws-elastic-container-service/
+# assumes cdk --version 1.97.0 or higher
+
+md ecs-ec2
+cd ecs-ec2
+cdk init --language python
+
+source # (this activates venv)
+
+python.exe -m pip install --upgrade pip
+pip install aws-cdk.core aws_cdk.aws_ecs aws_cdk.aws_ecs_patterns
+pip freeze > requirements.txt
+
+# create github project
+
+git remote add origin https://github.com/jrobbins-LiveData/ecs-ec2.git
+git branch -M main
+git push -u origin main
+
+git add -A
+git commit -m "initial commit"
+git push
