@@ -1,15 +1,23 @@
 # references:
+#
 # [1] simple dotnet web app
-# https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/run
+# https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/
+#
 # [2] howto dockerize dotnet app
 # https://docs.docker.com/engine/examples/dotnetcore/
+# IMPORTANT: updated info re .NET 5
+# https://stackoverflow.com/questions/64844197/docker-image-for-net-5
+#
 # [3] CDK ecs pattern ApplicationLoadBalancedServiceBase
 # https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_ecs_patterns/ApplicationLoadBalancedServiceBase.html#aws_cdk.aws_ecs_patterns.ApplicationLoadBalancedServiceBase
+#
 # [4] typescript example of using ApplicationLoadBalancedServiceBase 
 # https://blog.kylegalbraith.com/2019/10/24/how-to-run-docker-containers-via-aws-elastic-container-service/
 # 
-#
-# assumes cdk --version 1.97.0 or higher
+# notes:
+# cdk --version 1.97.0+
+# dotnet --version 5.0.202+
+
 
 md ecs-ec2
 cd ecs-ec2
@@ -30,3 +38,14 @@ git push -u origin main
 git add -A
 git commit -m "initial commit"
 git push
+
+cd ecs_ec2
+dotnet new webApp -o myWebApp --no-https
+
+# added Dockerfile and .dockerignore to myWebApp folder
+#
+# test locally
+docker build -t mywebapp2 .
+docker run -p 8080:80 mywebapp2
+# open http://localhost:8080/ in your browser
+#
