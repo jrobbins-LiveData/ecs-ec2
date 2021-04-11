@@ -1,0 +1,1393 @@
+(.venv) C:\Users\jeffr\Documents\projects\svn\Projects\Jeff-AWS\cdk\ecs-ec2>cdk deploy -v -v -v -v
+CDK toolkit version: 1.97.0 (build c52c2dc)
+Command line arguments: {
+  _: [ 'deploy' ],
+  v: 4,
+  verbose: 4,
+  lookups: true,
+  'ignore-errors': false,
+  ignoreErrors: false,
+  json: false,
+  j: false,
+  debug: false,
+  ec2creds: undefined,
+  i: undefined,
+  'version-reporting': undefined,
+  versionReporting: undefined,
+  'path-metadata': true,
+  pathMetadata: true,
+  'asset-metadata': true,
+  assetMetadata: true,
+  'role-arn': undefined,
+  r: undefined,
+  roleArn: undefined,
+  staging: true,
+  'no-color': false,
+  noColor: false,
+  fail: false,
+  all: false,
+  'build-exclude': [],
+  E: [],
+  buildExclude: [],
+  ci: false,
+  execute: true,
+  force: false,
+  f: false,
+  parameters: [ {} ],
+  'previous-parameters': true,
+  previousParameters: true,
+  '$0': 'C:\\Users\\jeffr\\AppData\\Roaming\\npm\\node_modules\\aws-cdk\\bin\\cdk'
+}
+cdk.json: {
+  "app": "python app.py",
+  "context": {
+    "@aws-cdk/core:enableStackNameDuplicates": "true",
+    "aws-cdk:enableDiffNoFail": "true",
+    "@aws-cdk/core:stackRelativeExports": "true",
+    "@aws-cdk/aws-ecr-assets:dockerIgnoreSupport": true,
+    "@aws-cdk/aws-secretsmanager:parseOwnedSecretName": true,
+    "@aws-cdk/aws-kms:defaultKeyPolicies": true,
+    "@aws-cdk/aws-s3:grantWriteWithoutAcl": true,
+    "@aws-cdk/aws-ecs-patterns:removeDefaultDesiredCount": true,
+    "@aws-cdk/aws-rds:lowercaseDbIdentifier": true
+  }
+}
+merged settings: {
+  versionReporting: true,
+  pathMetadata: true,
+  output: 'cdk.out',
+  app: 'python app.py',
+  context: {
+    '@aws-cdk/core:enableStackNameDuplicates': 'true',
+    'aws-cdk:enableDiffNoFail': 'true',
+    '@aws-cdk/core:stackRelativeExports': 'true',
+    '@aws-cdk/aws-ecr-assets:dockerIgnoreSupport': true,
+    '@aws-cdk/aws-secretsmanager:parseOwnedSecretName': true,
+    '@aws-cdk/aws-kms:defaultKeyPolicies': true,
+    '@aws-cdk/aws-s3:grantWriteWithoutAcl': true,
+    '@aws-cdk/aws-ecs-patterns:removeDefaultDesiredCount': true,
+    '@aws-cdk/aws-rds:lowercaseDbIdentifier': true
+  },
+  debug: false,
+  assetMetadata: true,
+  toolkitBucket: {},
+  staging: true,
+  bundlingStacks: [ '*' ],
+  lookups: true
+}
+Determining if we're on an EC2 instance.
+Does not look like an EC2 instance.
+Toolkit stack: CDKToolkit
+Setting "CDK_DEFAULT_REGION" environment variable to us-east-2
+Resolving default credentials
+Retrieved account ID 029003036509 from disk cache
+Setting "CDK_DEFAULT_ACCOUNT" environment variable to 029003036509
+context: {
+  '@aws-cdk/core:enableStackNameDuplicates': 'true',
+  'aws-cdk:enableDiffNoFail': 'true',
+  '@aws-cdk/core:stackRelativeExports': 'true',
+  '@aws-cdk/aws-ecr-assets:dockerIgnoreSupport': true,
+  '@aws-cdk/aws-secretsmanager:parseOwnedSecretName': true,
+  '@aws-cdk/aws-kms:defaultKeyPolicies': true,
+  '@aws-cdk/aws-s3:grantWriteWithoutAcl': true,
+  '@aws-cdk/aws-ecs-patterns:removeDefaultDesiredCount': true,
+  '@aws-cdk/aws-rds:lowercaseDbIdentifier': true,
+  'aws:cdk:enable-path-metadata': true,
+  'aws:cdk:enable-asset-metadata': true,
+  'aws:cdk:version-reporting': true,
+  'aws:cdk:bundling-stacks': [ '*' ]
+}
+outdir: cdk.out
+env: {
+  CDK_DEFAULT_REGION: 'us-east-2',
+  CDK_DEFAULT_ACCOUNT: '029003036509',
+  CDK_CONTEXT_JSON: '{"@aws-cdk/core:enableStackNameDuplicates":"true","aws-cdk:enableDiffNoFail":"true","@aws-cdk/core:stackRelativeExports":"true","@aws-cdk/aws-ecr-assets:dockerIgnoreSupport":true,"@aws-cdk/aws-secretsmanager:parseOwnedSecretName":true,"@aws-cdk/aws-kms:defaultKeyPolicies":true,"@aws-cdk/aws-s3:grantWriteWithoutAcl":true,"@aws-cdk/aws-ecs-patterns:removeDefaultDesiredCount":true,"@aws-cdk/aws-rds:lowercaseDbIdentifier":true,"aws:cdk:enable-path-metadata":true,"aws:cdk:enable-asset-metadata":true,"aws:cdk:version-reporting":true,"aws:cdk:bundling-stacks":["*"]}',
+  CDK_OUTDIR: 'cdk.out',
+  CDK_CLI_ASM_VERSION: '9.0.0',
+  CDK_CLI_VERSION: '1.97.0'
+}
+[Warning at /EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group] desiredCapacity has been configured. Be aware this will reset the size of your AutoScalingGroup on every deployment. See https://github.com/aws/aws-cdk/issues/5215
+  Annotations.addMessage (C:\Users\jeffr\AppData\Local\Temp\jsii-kernel-xk5t2z\node_modules\@aws-cdk\core\lib\annotations.js:94:42)
+  Annotations.addWarning (C:\Users\jeffr\AppData\Local\Temp\jsii-kernel-xk5t2z\node_modules\@aws-cdk\core\lib\annotations.js:37:14)
+  new AutoScalingGroup (C:\Users\jeffr\AppData\Local\Temp\jsii-kernel-xk5t2z\node_modules\@aws-cdk\aws-autoscaling\lib\auto-scaling-group.js:475:41)
+  Cluster.addCapacity (C:\Users\jeffr\AppData\Local\Temp\jsii-kernel-xk5t2z\node_modules\@aws-cdk\aws-ecs\lib\cluster.js:143:34)
+  C:\Users\jeffr\AppData\Local\Temp\tmp9ngb1wmt\lib\program.js:7970:134
+  Kernel._wrapSandboxCode (C:\Users\jeffr\AppData\Local\Temp\tmp9ngb1wmt\lib\program.js:8582:24)
+  C:\Users\jeffr\AppData\Local\Temp\tmp9ngb1wmt\lib\program.js:7970:107
+  Kernel._ensureSync (C:\Users\jeffr\AppData\Local\Temp\tmp9ngb1wmt\lib\program.js:8563:28)
+  Kernel.invoke (C:\Users\jeffr\AppData\Local\Temp\tmp9ngb1wmt\lib\program.js:7970:34)
+  KernelHost.processRequest (C:\Users\jeffr\AppData\Local\Temp\tmp9ngb1wmt\lib\program.js:9479:36)
+  KernelHost.run (C:\Users\jeffr\AppData\Local\Temp\tmp9ngb1wmt\lib\program.js:9442:22)
+  Immediate._onImmediate (C:\Users\jeffr\AppData\Local\Temp\tmp9ngb1wmt\lib\program.js:9443:46)
+  processImmediate (internal/timers.js:461:21)
+Reading existing template for stack EcsEc2Stack.
+[AWS cloudformation 400 0.237s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Call failed: describeStacks({"StackName":"EcsEc2Stack"}) => Stack with id EcsEc2Stack does not exist (code=ValidationError)
+This deployment will make potentially sensitive changes according to your current security approval level (--require-approval broadening).
+Please confirm you intend to make the following modifications:
+
+IAM Statement Changes
+┌───┬───────────────────────────┬────────┬───────────────────────────┬───────────────────────────┬──────────────────────────────┐
+│   │ Resource                  │ Effect │ Action                    │ Principal                 │ Condition                    │
+├───┼───────────────────────────┼────────┼───────────────────────────┼───────────────────────────┼──────────────────────────────┤
+│ + │ ${myWebApp-cluster.Arn}   │ Allow  │ ecs:DeregisterContainerIn │ AWS:${myWebApp-cluster/my │                              │
+│   │                           │        │ stance                    │ WebApp-scaling-group/Inst │                              │
+│   │                           │        │ ecs:RegisterContainerInst │ anceRole}                 │                              │
+│   │                           │        │ ance                      │                           │                              │
+│   │                           │        │ ecs:Submit*               │                           │                              │
+├───┼───────────────────────────┼────────┼───────────────────────────┼───────────────────────────┼──────────────────────────────┤
+│ + │ ${myWebApp-cluster/myWebA │ Allow  │ sts:AssumeRole            │ Service:ec2.${AWS::URLSuf │                              │
+│   │ pp-scaling-group/Instance │        │                           │ fix}                      │                              │
+│   │ Role.Arn}                 │        │                           │                           │                              │
+├───┼───────────────────────────┼────────┼───────────────────────────┼───────────────────────────┼──────────────────────────────┤
+│ + │ ${myWebApp-service/TaskDe │ Allow  │ sts:AssumeRole            │ Service:ecs-tasks.amazona │                              │
+│   │ f/ExecutionRole.Arn}      │        │                           │ ws.com                    │                              │
+├───┼───────────────────────────┼────────┼───────────────────────────┼───────────────────────────┼──────────────────────────────┤
+│ + │ ${myWebApp-service/TaskDe │ Allow  │ sts:AssumeRole            │ Service:ecs-tasks.amazona │                              │
+│   │ f/TaskRole.Arn}           │        │                           │ ws.com                    │                              │
+├───┼───────────────────────────┼────────┼───────────────────────────┼───────────────────────────┼──────────────────────────────┤
+│ + │ ${myWebApp-service/TaskDe │ Allow  │ logs:CreateLogStream      │ AWS:${myWebApp-service/Ta │                              │
+│   │ f/web/LogGroup.Arn}       │        │ logs:PutLogEvents         │ skDef/ExecutionRole}      │                              │
+├───┼───────────────────────────┼────────┼───────────────────────────┼───────────────────────────┼──────────────────────────────┤
+│ + │ *                         │ Allow  │ ecs:Poll                  │ AWS:${myWebApp-cluster/my │ "ArnEquals": {               │
+│   │                           │        │ ecs:StartTelemetrySession │ WebApp-scaling-group/Inst │   "ecs:cluster": "${myWebApp │
+│   │                           │        │                           │ anceRole}                 │ -cluster.Arn}"               │
+│   │                           │        │                           │                           │ }                            │
+│ + │ *                         │ Allow  │ ecr:GetAuthorizationToken │ AWS:${myWebApp-cluster/my │                              │
+│   │                           │        │ ecs:DiscoverPollEndpoint  │ WebApp-scaling-group/Inst │                              │
+│   │                           │        │ logs:CreateLogStream      │ anceRole}                 │                              │
+│   │                           │        │ logs:PutLogEvents         │                           │                              │
+│ + │ *                         │ Allow  │ ecr:GetAuthorizationToken │ AWS:${myWebApp-service/Ta │                              │
+│   │                           │        │                           │ skDef/ExecutionRole}      │                              │
+├───┼───────────────────────────┼────────┼───────────────────────────┼───────────────────────────┼──────────────────────────────┤
+│ + │ arn:${AWS::Partition}:ecr │ Allow  │ ecr:BatchCheckLayerAvaila │ AWS:${myWebApp-service/Ta │                              │
+│   │ :${AWS::Region}:${AWS::Ac │        │ bility                    │ skDef/ExecutionRole}      │                              │
+│   │ countId}:repository/aws-c │        │ ecr:BatchGetImage         │                           │                              │
+│   │ dk/assets                 │        │ ecr:GetDownloadUrlForLaye │                           │                              │
+│   │                           │        │ r                         │                           │                              │
+└───┴───────────────────────────┴────────┴───────────────────────────┴───────────────────────────┴──────────────────────────────┘
+Security Group Changes
+┌───┬─────────────────────────────────────────────────┬─────┬─────────────────┬─────────────────────────────────────────────────┐
+│   │ Group                                           │ Dir │ Protocol        │ Peer                                            │
+├───┼─────────────────────────────────────────────────┼─────┼─────────────────┼─────────────────────────────────────────────────┤
+│ + │ ${myWebApp-cluster/myWebApp-scaling-group/Insta │ In  │ TCP 32768-65535 │ ${myWebApp-service/LB/SecurityGroup.GroupId}    │
+│   │ nceSecurityGroup.GroupId}                       │     │                 │                                                 │
+│ + │ ${myWebApp-cluster/myWebApp-scaling-group/Insta │ Out │ Everything      │ Everyone (IPv4)                                 │
+│   │ nceSecurityGroup.GroupId}                       │     │                 │                                                 │
+├───┼─────────────────────────────────────────────────┼─────┼─────────────────┼─────────────────────────────────────────────────┤
+│ + │ ${myWebApp-service/LB/SecurityGroup.GroupId}    │ In  │ TCP 80          │ Everyone (IPv4)                                 │
+│ + │ ${myWebApp-service/LB/SecurityGroup.GroupId}    │ Out │ TCP 32768-65535 │ ${myWebApp-cluster/myWebApp-scaling-group/Insta │
+│   │                                                 │     │                 │ nceSecurityGroup.GroupId}                       │
+└───┴─────────────────────────────────────────────────┴─────┴─────────────────┴─────────────────────────────────────────────────┘
+(NOTE: There may be security-related changes not in this list. See https://github.com/aws/aws-cdk/issues/1299)
+
+Do you wish to deploy these changes (y/n)? y
+EcsEc2Stack: deploying...
+Waiting for stack CDKToolkit to finish creating or updating...
+[AWS cloudformation 200 0.21s 0 retries] describeStacks({ StackName: 'CDKToolkit' })
+[AWS cloudformation 400 0.073s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Call failed: describeStacks({"StackName":"EcsEc2Stack"}) => Stack with id EcsEc2Stack does not exist (code=ValidationError)
+Preparing asset 25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08: {"repositoryName":"aws-cdk/assets","imageTag":"25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08","id":"25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08","packaging":"container-image","path":"asset.25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08","sourceHash":"25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08"}
+aws-cdk/assets: checking if ECR repository already exists
+[AWS ecr 200 0.199s 0 retries] describeRepositories({ repositoryNames: [ 'aws-cdk/assets', [length]: 1 ] })
+EcsEc2Stack: checking if we can skip deploy
+EcsEc2Stack: no existing stack
+EcsEc2Stack: deploying...
+[0%] start: Publishing 25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08:current
+Retrieved account ID 029003036509 from disk cache
+[AWS ecr 200 0.047s 0 retries] describeRepositories({ repositoryNames: [ 'aws-cdk/assets', [length]: 1 ] })
+[0%] check: Check 029003036509.dkr.ecr.us-east-2.amazonaws.com/aws-cdk/assets:25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08
+[AWS ecr 200 0.053s 0 retries] describeImages({
+  repositoryName: 'aws-cdk/assets',
+  imageIds: [
+    {
+      imageTag: '25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08'
+    },
+    [length]: 1
+  ]
+})
+[0%] found: Found 029003036509.dkr.ecr.us-east-2.amazonaws.com/aws-cdk/assets:25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08
+[100%] success: Published 25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08:current
+Attempting to create ChangeSet with name cdk-deploy-change-set to create stack EcsEc2Stack
+EcsEc2Stack: creating CloudFormation changeset...
+[AWS cloudformation 200 1.311s 0 retries] createChangeSet({
+  StackName: 'EcsEc2Stack',
+  ChangeSetName: 'cdk-deploy-change-set',
+  ChangeSetType: 'CREATE',
+  Description: 'CDK Changeset for execution 77132edc-5fd7-46e9-8574-15d7a12383c5',
+  TemplateBody: 'Resources:\n' +
+    '  myWebAppcluster79FAB8F6:\n' +
+    '    Type: AWS::ECS::Cluster\n' +
+    '    Properties:\n' +
+    '      ClusterName: myWebApp-cluster\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Resource\n' +
+    '  myWebAppclusterVpc0DBA491A:\n' +
+    '    Type: AWS::EC2::VPC\n' +
+    '    Properties:\n' +
+    '      CidrBlock: 10.0.0.0/16\n' +
+    '      EnableDnsHostnames: true\n' +
+    '      EnableDnsSupport: true\n' +
+    '      InstanceTenancy: default\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/Resource\n' +
+    '  myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE:\n' +
+    '    Type: AWS::EC2::Subnet\n' +
+    '    Properties:\n' +
+    '      CidrBlock: 10.0.0.0/18\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      AvailabilityZone:\n' +
+    '        Fn::Select:\n' +
+    '          - 0\n' +
+    '          - Fn::GetAZs: ""\n' +
+    '      MapPublicIpOnLaunch: true\n' +
+    '      Tags:\n' +
+    '        - Key: aws-cdk:subnet-name\n' +
+    '          Value: Public\n' +
+    '        - Key: aws-cdk:subnet-type\n' +
+    '          Value: Public\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/Subnet\n' +
+    '  myWebAppclusterVpcPublicSubnet1RouteTable85AA218F:\n' +
+    '    Type: AWS::EC2::RouteTable\n' +
+    '    Properties:\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/RouteTable\n' +
+    '  myWebAppclusterVpcPublicSubnet1RouteTableAssociationC4BBCBAA:\n' +
+    '    Type: AWS::EC2::SubnetRouteTableAssociation\n' +
+    '    Properties:\n' +
+    '      RouteTableId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet1RouteTable85AA218F\n' +
+    '      SubnetId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/RouteTableAssociation\n' +
+    '  myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA:\n' +
+    '    Type: AWS::EC2::Route\n' +
+    '    Properties:\n' +
+    '      RouteTableId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet1RouteTable85AA218F\n' +
+    '      DestinationCidrBlock: 0.0.0.0/0\n' +
+    '      GatewayId:\n' +
+    '        Ref: myWebAppclusterVpcIGWD959D842\n' +
+    '    DependsOn:\n' +
+    '      - myWebAppclusterVpcVPCGWA93107E6\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/DefaultRoute\n' +
+    '  myWebAppclusterVpcPublicSubnet1EIPC3F72457:\n' +
+    '    Type: AWS::EC2::EIP\n' +
+    '    Properties:\n' +
+    '      Domain: vpc\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/EIP\n' +
+    '  myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC:\n' +
+    '    Type: AWS::EC2::NatGateway\n' +
+    '    Properties:\n' +
+    '      AllocationId:\n' +
+    '        Fn::GetAtt:\n' +
+    '          - myWebAppclusterVpcPublicSubnet1EIPC3F72457\n' +
+    '          - AllocationId\n' +
+    '      SubnetId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/NATGateway\n' +
+    '  myWebAppclusterVpcPublicSubnet2SubnetB0F1F136:\n' +
+    '    Type: AWS::EC2::Subnet\n' +
+    '    Properties:\n' +
+    '      CidrBlock: 10.0.64.0/18\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      AvailabilityZone:\n' +
+    '        Fn::Select:\n' +
+    '          - 1\n' +
+    '          - Fn::GetAZs: ""\n' +
+    '      MapPublicIpOnLaunch: true\n' +
+    '      Tags:\n' +
+    '        - Key: aws-cdk:subnet-name\n' +
+    '          Value: Public\n' +
+    '        - Key: aws-cdk:subnet-type\n' +
+    '          Value: Public\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/Subnet\n' +
+    '  myWebAppclusterVpcPublicSubnet2RouteTableD27465B9:\n' +
+    '    Type: AWS::EC2::RouteTable\n' +
+    '    Properties:\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/RouteTable\n' +
+    '  myWebAppclusterVpcPublicSubnet2RouteTableAssociationA13629DF:\n' +
+    '    Type: AWS::EC2::SubnetRouteTableAssociation\n' +
+    '    Properties:\n' +
+    '      RouteTableId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet2RouteTableD27465B9\n' +
+    '      SubnetId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet2SubnetB0F1F136\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/RouteTableAssociation\n' +
+    '  myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030:\n' +
+    '    Type: AWS::EC2::Route\n' +
+    '    Properties:\n' +
+    '      RouteTableId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet2RouteTableD27465B9\n' +
+    '      DestinationCidrBlock: 0.0.0.0/0\n' +
+    '      GatewayId:\n' +
+    '        Ref: myWebAppclusterVpcIGWD959D842\n' +
+    '    DependsOn:\n' +
+    '      - myWebAppclusterVpcVPCGWA93107E6\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/DefaultRoute\n' +
+    '  myWebAppclusterVpcPublicSubnet2EIP04C95BBF:\n' +
+    '    Type: AWS::EC2::EIP\n' +
+    '    Properties:\n' +
+    '      Domain: vpc\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/EIP\n' +
+    '  myWebAppclusterVpcPublicSubnet2NATGateway8767845D:\n' +
+    '    Type: AWS::EC2::NatGateway\n' +
+    '    Properties:\n' +
+    '      AllocationId:\n' +
+    '        Fn::GetAtt:\n' +
+    '          - myWebAppclusterVpcPublicSubnet2EIP04C95BBF\n' +
+    '          - AllocationId\n' +
+    '      SubnetId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet2SubnetB0F1F136\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/NATGateway\n' +
+    '  myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6:\n' +
+    '    Type: AWS::EC2::Subnet\n' +
+    '    Properties:\n' +
+    '      CidrBlock: 10.0.128.0/18\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      AvailabilityZone:\n' +
+    '        Fn::Select:\n' +
+    '          - 0\n' +
+    '          - Fn::GetAZs: ""\n' +
+    '      MapPublicIpOnLaunch: false\n' +
+    '      Tags:\n' +
+    '        - Key: aws-cdk:subnet-name\n' +
+    '          Value: Private\n' +
+    '        - Key: aws-cdk:subnet-type\n' +
+    '          Value: Private\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1/Subnet\n' +
+    '  myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C:\n' +
+    '    Type: AWS::EC2::RouteTable\n' +
+    '    Properties:\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1/RouteTable\n' +
+    '  myWebAppclusterVpcPrivateSubnet1RouteTableAssociation4F20DD2C:\n' +
+    '    Type: AWS::EC2::SubnetRouteTableAssociation\n' +
+    '    Properties:\n' +
+    '      RouteTableId:\n' +
+    '        Ref: myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C\n' +
+    '      SubnetId:\n' +
+    '        Ref: myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1/RouteTableAssociation\n' +
+    '  myWebAppclusterVpcPrivateSubnet1DefaultRoute39323A05:\n' +
+    '    Type: AWS::EC2::Route\n' +
+    '    Properties:\n' +
+    '      RouteTableId:\n' +
+    '        Ref: myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C\n' +
+    '      DestinationCidrBlock: 0.0.0.0/0\n' +
+    '      NatGatewayId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1/DefaultRoute\n' +
+    '  myWebAppclusterVpcPrivateSubnet2SubnetB891632D:\n' +
+    '    Type: AWS::EC2::Subnet\n' +
+    '    Properties:\n' +
+    '      CidrBlock: 10.0.192.0/18\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      AvailabilityZone:\n' +
+    '        Fn::Select:\n' +
+    '          - 1\n' +
+    '          - Fn::GetAZs: ""\n' +
+    '      MapPublicIpOnLaunch: false\n' +
+    '      Tags:\n' +
+    '        - Key: aws-cdk:subnet-name\n' +
+    '          Value: Private\n' +
+    '        - Key: aws-cdk:subnet-type\n' +
+    '          Value: Private\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2/Subnet\n' +
+    '  myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07:\n' +
+    '    Type: AWS::EC2::RouteTable\n' +
+    '    Properties:\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2/RouteTable\n' +
+    '  myWebAppclusterVpcPrivateSubnet2RouteTableAssociation7657CEB3:\n' +
+    '    Type: AWS::EC2::SubnetRouteTableAssociation\n' +
+    '    Properties:\n' +
+    '      RouteTableId:\n' +
+    '        Ref: myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07\n' +
+    '      SubnetId:\n' +
+    '        Ref: myWebAppclusterVpcPrivateSubnet2SubnetB891632D\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2/RouteTableAssociation\n' +
+    '  myWebAppclusterVpcPrivateSubnet2DefaultRouteD1AB9746:\n' +
+    '    Type: AWS::EC2::Route\n' +
+    '    Properties:\n' +
+    '      RouteTableId:\n' +
+    '        Ref: myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07\n' +
+    '      DestinationCidrBlock: 0.0.0.0/0\n' +
+    '      NatGatewayId:\n' +
+    '        Ref: myWebAppclusterVpcPublicSubnet2NATGateway8767845D\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2/DefaultRoute\n' +
+    '  myWebAppclusterVpcIGWD959D842:\n' +
+    '    Type: AWS::EC2::InternetGateway\n' +
+    '    Properties:\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/Vpc\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/IGW\n' +
+    '  myWebAppclusterVpcVPCGWA93107E6:\n' +
+    '    Type: AWS::EC2::VPCGatewayAttachment\n' +
+    '    Properties:\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '      InternetGatewayId:\n' +
+    '        Ref: myWebAppclusterVpcIGWD959D842\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/VPCGW\n' +
+    '  myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552:\n' +
+    '    Type: AWS::EC2::SecurityGroup\n' +
+    '    Properties:\n' +
+    '      GroupDescription: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup\n' +
+    '      SecurityGroupEgress:\n' +
+    '        - CidrIp: 0.0.0.0/0\n' +
+    '          Description: Allow all outbound traffic by default\n' +
+    '          IpProtocol: "-1"\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup/Resource\n' +
+    '  myWebAppclustermyWebAppscalinggroupInstanceSecurityGroupfromEcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995327686553586895952:\n' +
+    '    Type: AWS::EC2::SecurityGroupIngress\n' +
+    '    Properties:\n' +
+    '      IpProtocol: tcp\n' +
+    '      Description: Load balancer to target\n' +
+    '      FromPort: 32768\n' +
+    '      GroupId:\n' +
+    '        Fn::GetAtt:\n' +
+    '          - myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552\n' +
+    '          - GroupId\n' +
+    '      SourceSecurityGroupId:\n' +
+    '        Fn::GetAtt:\n' +
+    '          - myWebAppserviceLBSecurityGroup22A25AD0\n' +
+    '          - GroupId\n' +
+    '      ToPort: 65535\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup/from EcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995:32768-65535\n' +
+    '  myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D:\n' +
+    '    Type: AWS::IAM::Role\n' +
+    '    Properties:\n' +
+    '      AssumeRolePolicyDocument:\n' +
+    '        Statement:\n' +
+    '          - Action: sts:AssumeRole\n' +
+    '            Effect: Allow\n' +
+    '            Principal:\n' +
+    '              Service:\n' +
+    '                Fn::Join:\n' +
+    '                  - ""\n' +
+    '                  - - ec2.\n' +
+    '                    - Ref: AWS::URLSuffix\n' +
+    '        Version: "2012-10-17"\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group/InstanceRole/Resource\n' +
+    '  myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F:\n' +
+    '    Type: AWS::IAM::Policy\n' +
+    '    Properties:\n' +
+    '      PolicyDocument:\n' +
+    '        Statement:\n' +
+    '          - Action:\n' +
+    '              - ecs:DeregisterContainerInstance\n' +
+    '              - ecs:RegisterContainerInstance\n' +
+    '              - ecs:Submit*\n' +
+    '            Effect: Allow\n' +
+    '            Resource:\n' +
+    '              Fn::GetAtt:\n' +
+    '                - myWebAppcluster79FAB8F6\n' +
+    '                - Arn\n' +
+    '          - Action:\n' +
+    '              - ecs:Poll\n' +
+    '              - ecs:StartTelemetrySession\n' +
+    '            Condition:\n' +
+    '              ArnEquals:\n' +
+    '                ecs:cluster:\n' +
+    '                  Fn::GetAtt:\n' +
+    '                    - myWebAppcluster79FAB8F6\n' +
+    '                    - Arn\n' +
+    '            Effect: Allow\n' +
+    '            Resource: "*"\n' +
+    '          - Action:\n' +
+    '              - ecs:DiscoverPollEndpoint\n' +
+    '              - ecr:GetAuthorizationToken\n' +
+    '              - logs:CreateLogStream\n' +
+    '              - logs:PutLogEvents\n' +
+    '            Effect: Allow\n' +
+    '            Resource: "*"\n' +
+    '        Version: "2012-10-17"\n' +
+    '      PolicyName: myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F\n' +
+    '      Roles:\n' +
+    '        - Ref: myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group/InstanceRole/DefaultPolicy/Resource\n' +
+    '  myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B:\n' +
+    '    Type: AWS::IAM::InstanceProfile\n' +
+    '    Properties:\n' +
+    '      Roles:\n' +
+    '        - Ref: myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group/InstanceProfile\n' +
+    '  myWebAppclustermyWebAppscalinggroupLaunchConfig33C3FD7E:\n' +
+    '    Type: AWS::AutoScaling::LaunchConfiguration\n' +
+    '    Properties:\n' +
+    '      ImageId:\n' +
+    '        Ref: SsmParameterValueawsserviceecsoptimizedamiamazonlinux2recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter\n' +
+    '      InstanceType: t2.micro\n' +
+    '      IamInstanceProfile:\n' +
+    '        Ref: myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B\n' +
+    '      SecurityGroups:\n' +
+    '        - Fn::GetAtt:\n' +
+    '            - myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552\n' +
+    '            - GroupId\n' +
+    '      UserData:\n' +
+    '        Fn::Base64:\n' +
+    '          Fn::Join:\n' +
+    '            - ""\n' +
+    '            - - |-\n' +
+    '                #!/bin/bash\n' +
+    '                echo ECS_CLUSTER=\n' +
+    '              - Ref: myWebAppcluster79FAB8F6\n' +
+    '              - |-2\n' +
+    '                 >> /etc/ecs/ecs.config\n' +
+    '                sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP\n' +
+    '                sudo service iptables save\n' +
+    '                echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config\n' +
+    '    DependsOn:\n' +
+    '      - myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F\n' +
+    '      - myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group/LaunchConfig\n' +
+    '  myWebAppclustermyWebAppscalinggroupASG878D8358:\n' +
+    '    Type: AWS::AutoScaling::AutoScalingGroup\n' +
+    '    Properties:\n' +
+    '      MaxSize: "1"\n' +
+    '      MinSize: "1"\n' +
+    '      DesiredCapacity: "1"\n' +
+    '      LaunchConfigurationName:\n' +
+    '        Ref: myWebAppclustermyWebAppscalinggroupLaunchConfig33C3FD7E\n' +
+    '      Tags:\n' +
+    '        - Key: Name\n' +
+    '          PropagateAtLaunch: true\n' +
+    '          Value: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group\n' +
+    '      VPCZoneIdentifier:\n' +
+    '        - Ref: myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6\n' +
+    '        - Ref: myWebAppclusterVpcPrivateSubnet2SubnetB891632D\n' +
+    '    UpdatePolicy:\n' +
+    '      AutoScalingReplacingUpdate:\n' +
+    '        WillReplace: true\n' +
+    '      AutoScalingScheduledAction:\n' +
+    '        IgnoreUnmodifiedGroupSizeProperties: true\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/myWebApp-scaling-group/ASG\n' +
+    '  myWebAppserviceLB2F5390E3:\n' +
+    '    Type: AWS::ElasticLoadBalancingV2::LoadBalancer\n' +
+    '    Properties:\n' +
+    '      LoadBalancerAttributes:\n' +
+    '        - Key: deletion_protection.enabled\n' +
+    '          Value: "false"\n' +
+    '      Scheme: internet-facing\n' +
+    '      SecurityGroups:\n' +
+    '        - Fn::GetAtt:\n' +
+    '            - myWebAppserviceLBSecurityGroup22A25AD0\n' +
+    '            - GroupId\n' +
+    '      Subnets:\n' +
+    '        - Ref: myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE\n' +
+    '        - Ref: myWebAppclusterVpcPublicSubnet2SubnetB0F1F136\n' +
+    '      Type: application\n' +
+    '    DependsOn:\n' +
+    '      - myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA\n' +
+    '      - myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/Resource\n' +
+    '  myWebAppserviceLBSecurityGroup22A25AD0:\n' +
+    '    Type: AWS::EC2::SecurityGroup\n' +
+    '    Properties:\n' +
+    '      GroupDescription: Automatically created Security Group for ELB EcsEc2StackmyWebAppserviceLB8B1CA53A\n' +
+    '      SecurityGroupIngress:\n' +
+    '        - CidrIp: 0.0.0.0/0\n' +
+    '          Description: Allow from anyone on port 80\n' +
+    '          FromPort: 80\n' +
+    '          IpProtocol: tcp\n' +
+    '          ToPort: 80\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/SecurityGroup/Resource\n' +
+    '  myWebAppserviceLBSecurityGrouptoEcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD36212073276865535475EDF3F:\n' +
+    '    Type: AWS::EC2::SecurityGroupEgress\n' +
+    '    Properties:\n' +
+    '      GroupId:\n' +
+    '        Fn::GetAtt:\n' +
+    '          - myWebAppserviceLBSecurityGroup22A25AD0\n' +
+    '          - GroupId\n' +
+    '      IpProtocol: tcp\n' +
+    '      Description: Load balancer to target\n' +
+    '      DestinationSecurityGroupId:\n' +
+    '        Fn::GetAtt:\n' +
+    '          - myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552\n' +
+    '          - GroupId\n' +
+    '      FromPort: 32768\n' +
+    '      ToPort: 65535\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/SecurityGroup/to EcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD3621207:32768-65535\n' +
+    '  myWebAppserviceLBPublicListener663538AA:\n' +
+    '    Type: AWS::ElasticLoadBalancingV2::Listener\n' +
+    '    Properties:\n' +
+    '      DefaultActions:\n' +
+    '        - TargetGroupArn:\n' +
+    '            Ref: myWebAppserviceLBPublicListenerECSGroup5A73B327\n' +
+    '          Type: forward\n' +
+    '      LoadBalancerArn:\n' +
+    '        Ref: myWebAppserviceLB2F5390E3\n' +
+    '      Port: 80\n' +
+    '      Protocol: HTTP\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/PublicListener/Resource\n' +
+    '  myWebAppserviceLBPublicListenerECSGroup5A73B327:\n' +
+    '    Type: AWS::ElasticLoadBalancingV2::TargetGroup\n' +
+    '    Properties:\n' +
+    '      Port: 80\n' +
+    '      Protocol: HTTP\n' +
+    '      TargetType: instance\n' +
+    '      VpcId:\n' +
+    '        Ref: myWebAppclusterVpc0DBA491A\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/PublicListener/ECSGroup/Resource\n' +
+    '  myWebAppserviceTaskDefTaskRole1FF52BF5:\n' +
+    '    Type: AWS::IAM::Role\n' +
+    '    Properties:\n' +
+    '      AssumeRolePolicyDocument:\n' +
+    '        Statement:\n' +
+    '          - Action: sts:AssumeRole\n' +
+    '            Effect: Allow\n' +
+    '            Principal:\n' +
+    '              Service: ecs-tasks.amazonaws.com\n' +
+    '        Version: "2012-10-17"\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/TaskRole/Resource\n' +
+    '  myWebAppserviceTaskDefCE026C91:\n' +
+    '    Type: AWS::ECS::TaskDefinition\n' +
+    '    Properties:\n' +
+    '      ContainerDefinitions:\n' +
+    '        - Essential: true\n' +
+    '          Image:\n' +
+    '            Fn::Join:\n' +
+    '              - ""\n' +
+    '              - - Ref: AWS::AccountId\n' +
+    '                - .dkr.ecr.\n' +
+    '                - Ref: AWS::Region\n' +
+    '                - "."\n' +
+    '                - Ref: AWS::URLSuffix\n' +
+    '                - /aws-cdk/assets:25e4548f22fbdc8c7400e4777b0908e1ed314a0253e7205190c27562ba990a08\n' +
+    '          LogConfiguration:\n' +
+    '            LogDriver: awslogs\n' +
+    '            Options:\n' +
+    '              awslogs-group:\n' +
+    '                Ref: myWebAppserviceTaskDefwebLogGroup77E2E3B3\n' +
+    '              awslogs-stream-prefix: myWebApp-service\n' +
+    '              awslogs-region:\n' +
+    '                Ref: AWS::Region\n' +
+    '          Memory: 1024\n' +
+    '          Name: web\n' +
+    '          PortMappings:\n' +
+    '            - ContainerPort: 80\n' +
+    '              HostPort: 0\n' +
+    '              Protocol: tcp\n' +
+    '      ExecutionRoleArn:\n' +
+    '        Fn::GetAtt:\n' +
+    '          - myWebAppserviceTaskDefExecutionRole8B06806B\n' +
+    '          - Arn\n' +
+    '      Family: EcsEc2StackmyWebAppserviceTaskDef7C68CEC9\n' +
+    '      NetworkMode: bridge\n' +
+    '      RequiresCompatibilities:\n' +
+    '        - EC2\n' +
+    '      TaskRoleArn:\n' +
+    '        Fn::GetAtt:\n' +
+    '          - myWebAppserviceTaskDefTaskRole1FF52BF5\n' +
+    '          - Arn\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/Resource\n' +
+    '  myWebAppserviceTaskDefwebLogGroup77E2E3B3:\n' +
+    '    Type: AWS::Logs::LogGroup\n' +
+    '    UpdateReplacePolicy: Retain\n' +
+    '    DeletionPolicy: Retain\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/web/LogGroup/Resource\n' +
+    '  myWebAppserviceTaskDefExecutionRole8B06806B:\n' +
+    '    Type: AWS::IAM::Role\n' +
+    '    Properties:\n' +
+    '      AssumeRolePolicyDocument:\n' +
+    '        Statement:\n' +
+    '          - Action: sts:AssumeRole\n' +
+    '            Effect: Allow\n' +
+    '            Principal:\n' +
+    '              Service: ecs-tasks.amazonaws.com\n' +
+    '        Version: "2012-10-17"\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/ExecutionRole/Resource\n' +
+    '  myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140:\n' +
+    '    Type: AWS::IAM::Policy\n' +
+    '    Properties:\n' +
+    '      PolicyDocument:\n' +
+    '        Statement:\n' +
+    '          - Action:\n' +
+    '              - ecr:BatchCheckLayerAvailability\n' +
+    '              - ecr:GetDownloadUrlForLayer\n' +
+    '              - ecr:BatchGetImage\n' +
+    '            Effect: Allow\n' +
+    '            Resource:\n' +
+    '              Fn::Join:\n' +
+    '                - ""\n' +
+    '                - - "arn:"\n' +
+    '                  - Ref: AWS::Partition\n' +
+    '                  - ":ecr:"\n' +
+    '                  - Ref: AWS::Region\n' +
+    '                  - ":"\n' +
+    '                  - Ref: AWS::AccountId\n' +
+    '                  - :repository/aws-cdk/assets\n' +
+    '          - Action: ecr:GetAuthorizationToken\n' +
+    '            Effect: Allow\n' +
+    '            Resource: "*"\n' +
+    '          - Action:\n' +
+    '              - logs:CreateLogStream\n' +
+    '              - logs:PutLogEvents\n' +
+    '            Effect: Allow\n' +
+    '            Resource:\n' +
+    '              Fn::GetAtt:\n' +
+    '                - myWebAppserviceTaskDefwebLogGroup77E2E3B3\n' +
+    '                - Arn\n' +
+    '        Version: "2012-10-17"\n' +
+    '      PolicyName: myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140\n' +
+    '      Roles:\n' +
+    '        - Ref: myWebAppserviceTaskDefExecutionRole8B06806B\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/ExecutionRole/DefaultPolicy/Resource\n' +
+    '  myWebAppserviceService69454CE8:\n' +
+    '    Type: AWS::ECS::Service\n' +
+    '    Properties:\n' +
+    '      Cluster:\n' +
+    '        Ref: myWebAppcluster79FAB8F6\n' +
+    '      DeploymentConfiguration:\n' +
+    '        MaximumPercent: 200\n' +
+    '        MinimumHealthyPercent: 50\n' +
+    '      DesiredCount: 1\n' +
+    '      EnableECSManagedTags: false\n' +
+    '      HealthCheckGracePeriodSeconds: 60\n' +
+    '      LaunchType: EC2\n' +
+    '      LoadBalancers:\n' +
+    '        - ContainerName: web\n' +
+    '          ContainerPort: 80\n' +
+    '          TargetGroupArn:\n' +
+    '            Ref: myWebAppserviceLBPublicListenerECSGroup5A73B327\n' +
+    '      SchedulingStrategy: REPLICA\n' +
+    '      ServiceName: myWebApp-service\n' +
+    '      TaskDefinition:\n' +
+    '        Ref: myWebAppserviceTaskDefCE026C91\n' +
+    '    DependsOn:\n' +
+    '      - myWebAppserviceLBPublicListenerECSGroup5A73B327\n' +
+    '      - myWebAppserviceLBPublicListener663538AA\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/myWebApp-service/Service/Service\n' +
+    '  CDKMetadata:\n' +
+    '    Type: AWS::CDK::Metadata\n' +
+    '    Properties:\n' +
+    '      Analytics: v2:deflate64:H4sIAAAAAAAACn1SwW7bMAz9lt4VdcsORW9L06AwEHRGHPTOKIyjxZYMiUoRGP73UbJde+2wkx4fnyTykd/l44P8dvcT3v1CHS/3rbIOZVsQqIvYobfBKRTrk8nBQY2ELga/AjWBxMp7JJaW2pRibY0nFxRFwfwmJ46atDWdiL+0qLxs11Xww2Mj3KjlHvzlGU/aJH1MfmasIdAG3YzjewW6q+5/G2AnUC1l+9aoSL7la5GHQ6VVEQ4GU4kT2tlAuIdDhRM/cdykVRrGglIigk2Wx+MV6AUI3+EmcqevDKeHM8N9MR4FfSVDtCL2+FyjIVGgCk7T7cXZ0PRN/I/ITOnQ+y/8JtHsciDrFVQ8FdmuOCj64OO1LQSjzuzlSZfBfbT2WdoJDbVsd7Y3Jp25ZRNTJxPKePBgFObOnnSVrPeLBig27+WqaViYPtlaOD5BFbXH2dSwAk9aVZw9pCwXcOXh/ftm2pm/4rlO8yqZQTPiWX4PruR5jEbMwli1W0DcaC+frbqgy2ooMe14zMkdNtZrsu72BB5FZUve462d2TrgrutEfqOzNfc/5KNc3v32Wi9cMKRrlLv+/AMOqgJfeQMAAA==\n' +
+    '    Metadata:\n' +
+    '      aws:cdk:path: EcsEc2Stack/CDKMetadata/Default\n' +
+    '    Condition: CDKMetadataAvailable\n' +
+    'Parameters:\n' +
+    '  SsmParameterValueawsserviceecsoptimizedamiamazonlinux2recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter:\n' +
+    '    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>\n' +
+    '    Default: /aws/service/ecs/optimized-ami/amazon-linux-2/recommended/image_id\n' +
+    'Outputs:\n' +
+    '  myWebAppserviceLoadBalancerDNS3185BEF8:\n' +
+    '    Value:\n' +
+    '      Fn::GetAtt:\n' +
+    '        - myWebAppserviceLB2F5390E3\n' +
+    '        - DNSName\n' +
+    '  myWebAppserviceServiceURL41D7FC4E:\n' +
+    '    Value:\n' +
+    '      Fn::Join:\n' +
+    '        - ""\n' +
+    '        - - http://\n' +
+    '          - Fn::GetAtt:\n' +
+    '              - myWebAppserviceLB2F5390E3\n' +
+    '              - DNSName\n' +
+    '  ClusterArn:\n' +
+    '    Value:\n' +
+    '      Fn::GetAtt:\n' +
+    '        - myWebAppcluster79FAB8F6\n' +
+    '        - Arn\n' +
+    '  DnsName:\n' +
+    '    Value:\n' +
+    '      Fn::GetAtt:\n' +
+    '        - myWebAppserviceLB2F5390E3\n' +
+    '        - DNSName\n' +
+    'Conditions:\n' +
+    '  CDKMetadataAvailable:\n' +
+    '    Fn::Or:\n' +
+    '      - Fn::Or:\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - af-south-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - ap-east-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - ap-northeast-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - ap-northeast-2\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - ap-south-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - ap-southeast-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - ap-southeast-2\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - ca-central-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - cn-north-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - cn-northwest-1\n' +
+    '      - Fn::Or:\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - eu-central-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - eu-north-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - eu-south-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - eu-west-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - eu-west-2\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - eu-west-3\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - me-south-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - sa-east-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - us-east-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - us-east-2\n' +
+    '      - Fn::Or:\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - us-west-1\n' +
+    '          - Fn::Equals:\n' +
+    '              - Ref: AWS::Region\n' +
+    '              - us-west-2\n',
+  TemplateURL: undefined,
+  Parameters: [ [length]: 0 ],
+  RoleARN: undefined,
+  NotificationARNs: undefined,
+  Capabilities: [
+    'CAPABILITY_IAM',
+    'CAPABILITY_NAMED_IAM',
+    'CAPABILITY_AUTO_EXPAND',
+    [length]: 3
+  ],
+  Tags: [ [length]: 0 ]
+})
+Initiated creation of changeset: arn:aws:cloudformation:us-east-2:029003036509:changeSet/cdk-deploy-change-set/af985cd2-9407-4b16-922e-0baf59cdd8d9; waiting for it to finish creating...
+Waiting for changeset cdk-deploy-change-set on stack EcsEc2Stack to finish creating...
+[AWS cloudformation 200 0.083s 0 retries] describeChangeSet({ StackName: 'EcsEc2Stack', ChangeSetName: 'cdk-deploy-change-set' })
+Changeset cdk-deploy-change-set on stack EcsEc2Stack is still creating
+[AWS cloudformation 200 0.172s 0 retries] describeChangeSet({ StackName: 'EcsEc2Stack', ChangeSetName: 'cdk-deploy-change-set' })
+Initiating execution of changeset arn:aws:cloudformation:us-east-2:029003036509:changeSet/cdk-deploy-change-set/af985cd2-9407-4b16-922e-0baf59cdd8d9 on stack EcsEc2Stack
+[AWS cloudformation 200 0.162s 0 retries] executeChangeSet({ StackName: 'EcsEc2Stack', ChangeSetName: 'cdk-deploy-change-set' })
+Execution of changeset arn:aws:cloudformation:us-east-2:029003036509:changeSet/cdk-deploy-change-set/af985cd2-9407-4b16-922e-0baf59cdd8d9 on stack EcsEc2Stack has started; waiting for the update to complete...
+Waiting for stack EcsEc2Stack to finish creating or updating...
+[AWS cloudformation 200 0.08s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS (User Initiated))
+[AWS cloudformation 200 0.078s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+  0/44 | 5:53:54 PM | REVIEW_IN_PROGRESS   | AWS::CloudFormation::Stack                | EcsEc2Stack User Initiated
+  0/44 | 5:53:59 PM | CREATE_IN_PROGRESS   | AWS::CloudFormation::Stack                | EcsEc2Stack User Initiated
+[AWS cloudformation 200 0.231s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.075s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.072s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.07s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.076s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.07s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.078s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.125s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::ECS::Cluster                         | myWebApp-cluster (myWebAppcluster79FAB8F6)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::IAM::Role                            | myWebApp-service/TaskDef/ExecutionRole (myWebAppserviceTaskDefExecutionRole8B06806B)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::IAM::Role                            | myWebApp-service/TaskDef/TaskRole (myWebAppserviceTaskDefTaskRole1FF52BF5)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::EC2::InternetGateway                 | myWebApp-cluster/Vpc/IGW (myWebAppclusterVpcIGWD959D842)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::Logs::LogGroup                       | myWebApp-service/TaskDef/web/LogGroup (myWebAppserviceTaskDefwebLogGroup77E2E3B3)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::EC2::EIP                             | myWebApp-cluster/Vpc/PublicSubnet2/EIP (myWebAppclusterVpcPublicSubnet2EIP04C95BBF)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::EC2::VPC                             | myWebApp-cluster/Vpc (myWebAppclusterVpc0DBA491A)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::EC2::EIP                             | myWebApp-cluster/Vpc/PublicSubnet1/EIP (myWebAppclusterVpcPublicSubnet1EIPC3F72457)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::CDK::Metadata                        | CDKMetadata/Default (CDKMetadata)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::IAM::Role                            | myWebApp-service/TaskDef/TaskRole (myWebAppserviceTaskDefTaskRole1FF52BF5) Resource creation Initiated
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::IAM::Role                            | myWebApp-service/TaskDef/ExecutionRole (myWebAppserviceTaskDefExecutionRole8B06806B) Resource creation Initiated
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::EC2::InternetGateway                 | myWebApp-cluster/Vpc/IGW (myWebAppclusterVpcIGWD959D842) Resource creation Initiated
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::IAM::Role                            | myWebApp-cluster/myWebApp-scaling-group/InstanceRole (myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D)
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::EC2::VPC                             | myWebApp-cluster/Vpc (myWebAppclusterVpc0DBA491A) Resource creation Initiated
+  0/44 | 5:54:24 PM | CREATE_IN_PROGRESS   | AWS::IAM::Role                            | myWebApp-cluster/myWebApp-scaling-group/InstanceRole (myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D) Resource creation Initiated
+[AWS cloudformation 200 0.076s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.113s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+  3/44 | 5:54:25 PM | CREATE_IN_PROGRESS   | AWS::ECS::Cluster                         | myWebApp-cluster (myWebAppcluster79FAB8F6) Resource creation Initiated
+  3/44 | 5:54:25 PM | CREATE_IN_PROGRESS   | AWS::CDK::Metadata                        | CDKMetadata/Default (CDKMetadata) Resource creation Initiated
+  3/44 | 5:54:25 PM | CREATE_IN_PROGRESS   | AWS::Logs::LogGroup                       | myWebApp-service/TaskDef/web/LogGroup (myWebAppserviceTaskDefwebLogGroup77E2E3B3) Resource creation Initiated
+  3/44 | 5:54:25 PM | CREATE_COMPLETE      | AWS::CDK::Metadata                        | CDKMetadata/Default (CDKMetadata)
+  3/44 | 5:54:25 PM | CREATE_COMPLETE      | AWS::Logs::LogGroup                       | myWebApp-service/TaskDef/web/LogGroup (myWebAppserviceTaskDefwebLogGroup77E2E3B3)
+  3/44 | 5:54:26 PM | CREATE_IN_PROGRESS   | AWS::EC2::EIP                             | myWebApp-cluster/Vpc/PublicSubnet2/EIP (myWebAppclusterVpcPublicSubnet2EIP04C95BBF) Resource creation Initiated
+  3/44 | 5:54:26 PM | CREATE_IN_PROGRESS   | AWS::EC2::EIP                             | myWebApp-cluster/Vpc/PublicSubnet1/EIP (myWebAppclusterVpcPublicSubnet1EIPC3F72457) Resource creation Initiated
+  3/44 | 5:54:29 PM | CREATE_COMPLETE      | AWS::ECS::Cluster                         | myWebApp-cluster (myWebAppcluster79FAB8F6)
+[AWS cloudformation 200 0.071s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.12s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.077s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.117s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+  7/44 | 5:54:38 PM | CREATE_COMPLETE      | AWS::IAM::Role                            | myWebApp-service/TaskDef/ExecutionRole (myWebAppserviceTaskDefExecutionRole8B06806B)
+  7/44 | 5:54:38 PM | CREATE_COMPLETE      | AWS::IAM::Role                            | myWebApp-service/TaskDef/TaskRole (myWebAppserviceTaskDefTaskRole1FF52BF5)
+  7/44 | 5:54:38 PM | CREATE_COMPLETE      | AWS::IAM::Role                            | myWebApp-cluster/myWebApp-scaling-group/InstanceRole (myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D)
+  7/44 | 5:54:40 PM | CREATE_COMPLETE      | AWS::EC2::InternetGateway                 | myWebApp-cluster/Vpc/IGW (myWebAppclusterVpcIGWD959D842)
+  7/44 | 5:54:40 PM | CREATE_IN_PROGRESS   | AWS::ECS::TaskDefinition                  | myWebApp-service/TaskDef (myWebAppserviceTaskDefCE026C91)
+  7/44 | 5:54:40 PM | CREATE_IN_PROGRESS   | AWS::IAM::InstanceProfile                 | myWebApp-cluster/myWebApp-scaling-group/InstanceProfile (myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B)
+[AWS cloudformation 200 0.086s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.077s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.166s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 16/44 | 5:54:40 PM | CREATE_IN_PROGRESS   | AWS::IAM::Policy                          | myWebApp-service/TaskDef/ExecutionRole/DefaultPolicy (myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140)
+ 16/44 | 5:54:40 PM | CREATE_IN_PROGRESS   | AWS::IAM::InstanceProfile                 | myWebApp-cluster/myWebApp-scaling-group/InstanceProfile (myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B) Resource creation Initiated
+ 16/44 | 5:54:40 PM | CREATE_COMPLETE      | AWS::EC2::VPC                             | myWebApp-cluster/Vpc (myWebAppclusterVpc0DBA491A)
+ 16/44 | 5:54:41 PM | CREATE_IN_PROGRESS   | AWS::IAM::Policy                          | myWebApp-cluster/myWebApp-scaling-group/InstanceRole/DefaultPolicy (myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F)
+ 16/44 | 5:54:41 PM | CREATE_IN_PROGRESS   | AWS::IAM::Policy                          | myWebApp-service/TaskDef/ExecutionRole/DefaultPolicy (myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140) Resource creation Initiated
+ 16/44 | 5:54:41 PM | CREATE_IN_PROGRESS   | AWS::IAM::Policy                          | myWebApp-cluster/myWebApp-scaling-group/InstanceRole/DefaultPolicy (myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F) Resource creation Initiated
+ 16/44 | 5:54:42 PM | CREATE_COMPLETE      | AWS::EC2::EIP                             | myWebApp-cluster/Vpc/PublicSubnet2/EIP (myWebAppclusterVpcPublicSubnet2EIP04C95BBF)
+ 16/44 | 5:54:42 PM | CREATE_COMPLETE      | AWS::EC2::EIP                             | myWebApp-cluster/Vpc/PublicSubnet1/EIP (myWebAppclusterVpcPublicSubnet1EIPC3F72457)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::ElasticLoadBalancingV2::TargetGroup  | myWebApp-service/LB/PublicListener/ECSGroup (myWebAppserviceLBPublicListenerECSGroup5A73B327)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PublicSubnet2/RouteTable (myWebAppclusterVpcPublicSubnet2RouteTableD27465B9)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::SecurityGroup                   | myWebApp-service/LB/SecurityGroup (myWebAppserviceLBSecurityGroup22A25AD0)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PrivateSubnet1/RouteTable (myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::SecurityGroup                   | myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup (myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PublicSubnet1/RouteTable (myWebAppclusterVpcPublicSubnet1RouteTable85AA218F)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PrivateSubnet2/RouteTable (myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::ECS::TaskDefinition                  | myWebApp-service/TaskDef (myWebAppserviceTaskDefCE026C91) Resource creation Initiated
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PublicSubnet1/Subnet (myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::VPCGatewayAttachment            | myWebApp-cluster/Vpc/VPCGW (myWebAppclusterVpcVPCGWA93107E6)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::ElasticLoadBalancingV2::TargetGroup  | myWebApp-service/LB/PublicListener/ECSGroup (myWebAppserviceLBPublicListenerECSGroup5A73B327) Resource creation Initiated
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PublicSubnet2/Subnet (myWebAppclusterVpcPublicSubnet2SubnetB0F1F136)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PrivateSubnet1/RouteTable (myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C) Resource creation Initiated
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PublicSubnet1/RouteTable (myWebAppclusterVpcPublicSubnet1RouteTable85AA218F) Resource creation Initiated
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PublicSubnet2/RouteTable (myWebAppclusterVpcPublicSubnet2RouteTableD27465B9) Resource creation Initiated
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PrivateSubnet1/Subnet (myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6)
+ 16/44 | 5:54:42 PM | CREATE_COMPLETE      | AWS::ECS::TaskDefinition                  | myWebApp-service/TaskDef (myWebAppserviceTaskDefCE026C91)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PublicSubnet1/Subnet (myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE) Resource creation Initiated
+ 16/44 | 5:54:42 PM | CREATE_COMPLETE      | AWS::ElasticLoadBalancingV2::TargetGroup  | myWebApp-service/LB/PublicListener/ECSGroup (myWebAppserviceLBPublicListenerECSGroup5A73B327)
+ 16/44 | 5:54:42 PM | CREATE_IN_PROGRESS   | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PrivateSubnet2/RouteTable (myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07) Resource creation Initiated
+ 16/44 | 5:54:43 PM | CREATE_IN_PROGRESS   | AWS::EC2::VPCGatewayAttachment            | myWebApp-cluster/Vpc/VPCGW (myWebAppclusterVpcVPCGWA93107E6) Resource creation Initiated
+ 16/44 | 5:54:43 PM | CREATE_IN_PROGRESS   | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PrivateSubnet2/Subnet (myWebAppclusterVpcPrivateSubnet2SubnetB891632D)
+ 16/44 | 5:54:43 PM | CREATE_IN_PROGRESS   | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PublicSubnet2/Subnet (myWebAppclusterVpcPublicSubnet2SubnetB0F1F136) Resource creation Initiated
+ 16/44 | 5:54:43 PM | CREATE_IN_PROGRESS   | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PrivateSubnet1/Subnet (myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6) Resource creation Initiated
+ 16/44 | 5:54:43 PM | CREATE_IN_PROGRESS   | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PrivateSubnet2/Subnet (myWebAppclusterVpcPrivateSubnet2SubnetB891632D) Resource creation Initiated
+ 16/44 | 5:54:43 PM | CREATE_COMPLETE      | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PrivateSubnet1/RouteTable (myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C)
+ 16/44 | 5:54:43 PM | CREATE_COMPLETE      | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PublicSubnet2/RouteTable (myWebAppclusterVpcPublicSubnet2RouteTableD27465B9)
+ 16/44 | 5:54:43 PM | CREATE_COMPLETE      | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PublicSubnet1/RouteTable (myWebAppclusterVpcPublicSubnet1RouteTable85AA218F)
+ 16/44 | 5:54:43 PM | CREATE_COMPLETE      | AWS::EC2::RouteTable                      | myWebApp-cluster/Vpc/PrivateSubnet2/RouteTable (myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07)
+[AWS cloudformation 200 0.079s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.234s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 20/44 | 5:54:47 PM | CREATE_IN_PROGRESS   | AWS::EC2::SecurityGroup                   | myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup (myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552) Resource creation Initiated
+ 20/44 | 5:54:47 PM | CREATE_IN_PROGRESS   | AWS::EC2::SecurityGroup                   | myWebApp-service/LB/SecurityGroup (myWebAppserviceLBSecurityGroup22A25AD0) Resource creation Initiated
+ 20/44 | 5:54:47 PM | CREATE_COMPLETE      | AWS::EC2::SecurityGroup                   | myWebApp-service/LB/SecurityGroup (myWebAppserviceLBSecurityGroup22A25AD0)
+ 20/44 | 5:54:48 PM | CREATE_COMPLETE      | AWS::EC2::SecurityGroup                   | myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup (myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552)
+ 20/44 | 5:54:49 PM | CREATE_IN_PROGRESS   | AWS::EC2::SecurityGroupEgress             | myWebApp-service/LB/SecurityGroup/to EcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD3621207:32768-65535 (myWebAppserviceLBSecurityGrouptoEcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD36212073276865535475EDF3F)
+ 20/44 | 5:54:49 PM | CREATE_IN_PROGRESS   | AWS::EC2::SecurityGroupIngress            | myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup/from EcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995:32768-65535 (myWebAppclustermyWebAppscalinggroupInstanceSecurityGroupfromEcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995327686553586895952)
+ 20/44 | 5:54:49 PM | CREATE_IN_PROGRESS   | AWS::EC2::SecurityGroupIngress            | myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup/from EcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995:32768-65535 (myWebAppclustermyWebAppscalinggroupInstanceSecurityGroupfromEcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995327686553586895952) Resource creation Initiated
+ 20/44 | 5:54:49 PM | CREATE_IN_PROGRESS   | AWS::EC2::SecurityGroupEgress             | myWebApp-service/LB/SecurityGroup/to EcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD3621207:32768-65535 (myWebAppserviceLBSecurityGrouptoEcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD36212073276865535475EDF3F) Resource creation Initiated
+ 20/44 | 5:54:50 PM | CREATE_COMPLETE      | AWS::EC2::SecurityGroupIngress            | myWebApp-cluster/myWebApp-scaling-group/InstanceSecurityGroup/from EcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995:32768-65535 (myWebAppclustermyWebAppscalinggroupInstanceSecurityGroupfromEcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995327686553586895952)
+ 20/44 | 5:54:50 PM | CREATE_COMPLETE      | AWS::EC2::SecurityGroupEgress             | myWebApp-service/LB/SecurityGroup/to EcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD3621207:32768-65535 (myWebAppserviceLBSecurityGrouptoEcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD36212073276865535475EDF3F)
+[AWS cloudformation 200 0.073s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.174s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 22/44 | 5:54:54 PM | CREATE_COMPLETE      | AWS::IAM::Policy                          | myWebApp-service/TaskDef/ExecutionRole/DefaultPolicy (myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140)
+ 22/44 | 5:54:55 PM | CREATE_COMPLETE      | AWS::IAM::Policy                          | myWebApp-cluster/myWebApp-scaling-group/InstanceRole/DefaultPolicy (myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F)
+[AWS cloudformation 200 0.082s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.22s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 27/44 | 5:54:58 PM | CREATE_COMPLETE      | AWS::EC2::VPCGatewayAttachment            | myWebApp-cluster/Vpc/VPCGW (myWebAppclusterVpcVPCGWA93107E6)
+ 27/44 | 5:54:58 PM | CREATE_COMPLETE      | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PublicSubnet1/Subnet (myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE)
+ 27/44 | 5:54:59 PM | CREATE_COMPLETE      | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PrivateSubnet1/Subnet (myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6)
+ 27/44 | 5:54:59 PM | CREATE_COMPLETE      | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PublicSubnet2/Subnet (myWebAppclusterVpcPublicSubnet2SubnetB0F1F136)
+ 27/44 | 5:54:59 PM | CREATE_COMPLETE      | AWS::EC2::Subnet                          | myWebApp-cluster/Vpc/PrivateSubnet2/Subnet (myWebAppclusterVpcPrivateSubnet2SubnetB891632D)
+ 27/44 | 5:54:59 PM | CREATE_IN_PROGRESS   | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PublicSubnet2/DefaultRoute (myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030)
+ 27/44 | 5:54:59 PM | CREATE_IN_PROGRESS   | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PublicSubnet1/DefaultRoute (myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA)
+ 27/44 | 5:55:00 PM | CREATE_IN_PROGRESS   | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PublicSubnet2/DefaultRoute (myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030) Resource creation Initiated
+ 27/44 | 5:55:00 PM | CREATE_IN_PROGRESS   | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PublicSubnet1/DefaultRoute (myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA) Resource creation Initiated
+ 27/44 | 5:55:00 PM | CREATE_IN_PROGRESS   | AWS::EC2::NatGateway                      | myWebApp-cluster/Vpc/PublicSubnet1/NATGateway (myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC)
+ 27/44 | 5:55:00 PM | CREATE_IN_PROGRESS   | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PublicSubnet1/RouteTableAssociation (myWebAppclusterVpcPublicSubnet1RouteTableAssociationC4BBCBAA)
+ 27/44 | 5:55:00 PM | CREATE_IN_PROGRESS   | AWS::EC2::NatGateway                      | myWebApp-cluster/Vpc/PublicSubnet1/NATGateway (myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC) Resource creation Initiated
+ 27/44 | 5:55:00 PM | CREATE_IN_PROGRESS   | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PublicSubnet2/RouteTableAssociation (myWebAppclusterVpcPublicSubnet2RouteTableAssociationA13629DF)
+ 27/44 | 5:55:00 PM | CREATE_IN_PROGRESS   | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PrivateSubnet1/RouteTableAssociation (myWebAppclusterVpcPrivateSubnet1RouteTableAssociation4F20DD2C)
+ 27/44 | 5:55:00 PM | CREATE_IN_PROGRESS   | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PublicSubnet1/RouteTableAssociation (myWebAppclusterVpcPublicSubnet1RouteTableAssociationC4BBCBAA) Resource creation Initiated
+ 27/44 | 5:55:01 PM | CREATE_IN_PROGRESS   | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PrivateSubnet2/RouteTableAssociation (myWebAppclusterVpcPrivateSubnet2RouteTableAssociation7657CEB3)
+ 27/44 | 5:55:01 PM | CREATE_IN_PROGRESS   | AWS::EC2::NatGateway                      | myWebApp-cluster/Vpc/PublicSubnet2/NATGateway (myWebAppclusterVpcPublicSubnet2NATGateway8767845D)
+[AWS cloudformation 200 0.071s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.207s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 27/44 | 5:55:01 PM | CREATE_IN_PROGRESS   | AWS::EC2::NatGateway                      | myWebApp-cluster/Vpc/PublicSubnet2/NATGateway (myWebAppclusterVpcPublicSubnet2NATGateway8767845D) Resource creation Initiated
+ 27/44 | 5:55:01 PM | CREATE_IN_PROGRESS   | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PrivateSubnet1/RouteTableAssociation (myWebAppclusterVpcPrivateSubnet1RouteTableAssociation4F20DD2C) Resource creation Initiated
+ 27/44 | 5:55:01 PM | CREATE_IN_PROGRESS   | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PublicSubnet2/RouteTableAssociation (myWebAppclusterVpcPublicSubnet2RouteTableAssociationA13629DF) Resource creation Initiated
+ 27/44 | 5:55:01 PM | CREATE_IN_PROGRESS   | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PrivateSubnet2/RouteTableAssociation (myWebAppclusterVpcPrivateSubnet2RouteTableAssociation7657CEB3) Resource creation Initiated
+[AWS cloudformation 200 0.072s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.215s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.075s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.202s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 33/44 | 5:55:15 PM | CREATE_COMPLETE      | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PublicSubnet2/DefaultRoute (myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030)
+ 33/44 | 5:55:15 PM | CREATE_COMPLETE      | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PublicSubnet1/DefaultRoute (myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA)
+ 33/44 | 5:55:16 PM | CREATE_COMPLETE      | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PublicSubnet1/RouteTableAssociation (myWebAppclusterVpcPublicSubnet1RouteTableAssociationC4BBCBAA)
+ 33/44 | 5:55:16 PM | CREATE_COMPLETE      | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PrivateSubnet1/RouteTableAssociation (myWebAppclusterVpcPrivateSubnet1RouteTableAssociation4F20DD2C)
+ 33/44 | 5:55:16 PM | CREATE_COMPLETE      | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PublicSubnet2/RouteTableAssociation (myWebAppclusterVpcPublicSubnet2RouteTableAssociationA13629DF)
+ 33/44 | 5:55:16 PM | CREATE_COMPLETE      | AWS::EC2::SubnetRouteTableAssociation     | myWebApp-cluster/Vpc/PrivateSubnet2/RouteTableAssociation (myWebAppclusterVpcPrivateSubnet2RouteTableAssociation7657CEB3)
+[AWS cloudformation 200 0.075s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.216s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 33/44 | 5:55:17 PM | CREATE_IN_PROGRESS   | AWS::ElasticLoadBalancingV2::LoadBalancer | myWebApp-service/LB (myWebAppserviceLB2F5390E3)
+ 33/44 | 5:55:18 PM | CREATE_IN_PROGRESS   | AWS::ElasticLoadBalancingV2::LoadBalancer | myWebApp-service/LB (myWebAppserviceLB2F5390E3) Resource creation Initiated
+[AWS cloudformation 200 0.073s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.225s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.074s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.215s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.076s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.211s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.073s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.211s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.07s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.21s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.068s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.214s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+33/44 Currently in progress: EcsEc2Stack, myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B, myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC, myWebAppclusterVpcPublicSubnet2NATGateway8767845D, myWebAppserviceLB2F5390E3
+[AWS cloudformation 200 0.073s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.264s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.092s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.207s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.074s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.222s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.071s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.208s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.07s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.206s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.068s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.237s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.071s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.207s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.069s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.22s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.073s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.21s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.07s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.22s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 35/44 | 5:56:41 PM | CREATE_COMPLETE      | AWS::IAM::InstanceProfile                 | myWebApp-cluster/myWebApp-scaling-group/InstanceProfile (myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B)
+ 35/44 | 5:56:43 PM | CREATE_IN_PROGRESS   | AWS::AutoScaling::LaunchConfiguration     | myWebApp-cluster/myWebApp-scaling-group/LaunchConfig (myWebAppclustermyWebAppscalinggroupLaunchConfig33C3FD7E)
+ 35/44 | 5:56:43 PM | CREATE_IN_PROGRESS   | AWS::AutoScaling::LaunchConfiguration     | myWebApp-cluster/myWebApp-scaling-group/LaunchConfig (myWebAppclustermyWebAppscalinggroupLaunchConfig33C3FD7E) Resource creation Initiated
+ 35/44 | 5:56:43 PM | CREATE_COMPLETE      | AWS::AutoScaling::LaunchConfiguration     | myWebApp-cluster/myWebApp-scaling-group/LaunchConfig (myWebAppclustermyWebAppscalinggroupLaunchConfig33C3FD7E)
+ 35/44 | 5:56:45 PM | CREATE_IN_PROGRESS   | AWS::AutoScaling::AutoScalingGroup        | myWebApp-cluster/myWebApp-scaling-group/ASG (myWebAppclustermyWebAppscalinggroupASG878D8358)
+ 35/44 | 5:56:45 PM | CREATE_IN_PROGRESS   | AWS::AutoScaling::AutoScalingGroup        | myWebApp-cluster/myWebApp-scaling-group/ASG (myWebAppclustermyWebAppscalinggroupASG878D8358) Resource creation Initiated
+[AWS cloudformation 200 0.09s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.208s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 38/44 | 5:56:48 PM | CREATE_COMPLETE      | AWS::EC2::NatGateway                      | myWebApp-cluster/Vpc/PublicSubnet1/NATGateway (myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC)
+ 38/44 | 5:56:48 PM | CREATE_COMPLETE      | AWS::EC2::NatGateway                      | myWebApp-cluster/Vpc/PublicSubnet2/NATGateway (myWebAppclusterVpcPublicSubnet2NATGateway8767845D)
+ 38/44 | 5:56:49 PM | CREATE_COMPLETE      | AWS::ElasticLoadBalancingV2::LoadBalancer | myWebApp-service/LB (myWebAppserviceLB2F5390E3)
+ 38/44 | 5:56:49 PM | CREATE_IN_PROGRESS   | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PrivateSubnet1/DefaultRoute (myWebAppclusterVpcPrivateSubnet1DefaultRoute39323A05)
+ 38/44 | 5:56:49 PM | CREATE_IN_PROGRESS   | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PrivateSubnet1/DefaultRoute (myWebAppclusterVpcPrivateSubnet1DefaultRoute39323A05) Resource creation Initiated
+ 38/44 | 5:56:50 PM | CREATE_IN_PROGRESS   | AWS::ElasticLoadBalancingV2::Listener     | myWebApp-service/LB/PublicListener (myWebAppserviceLBPublicListener663538AA)
+ 38/44 | 5:56:50 PM | CREATE_IN_PROGRESS   | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PrivateSubnet2/DefaultRoute (myWebAppclusterVpcPrivateSubnet2DefaultRouteD1AB9746)
+[AWS cloudformation 200 0.073s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.226s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 39/44 | 5:56:51 PM | CREATE_IN_PROGRESS   | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PrivateSubnet2/DefaultRoute (myWebAppclusterVpcPrivateSubnet2DefaultRouteD1AB9746) Resource creation Initiated
+ 39/44 | 5:56:52 PM | CREATE_IN_PROGRESS   | AWS::ElasticLoadBalancingV2::Listener     | myWebApp-service/LB/PublicListener (myWebAppserviceLBPublicListener663538AA) Resource creation Initiated
+ 39/44 | 5:56:52 PM | CREATE_COMPLETE      | AWS::ElasticLoadBalancingV2::Listener     | myWebApp-service/LB/PublicListener (myWebAppserviceLBPublicListener663538AA)
+ 39/44 | 5:56:54 PM | CREATE_IN_PROGRESS   | AWS::ECS::Service                         | myWebApp-service/Service/Service (myWebAppserviceService69454CE8)
+ 39/44 | 5:56:55 PM | CREATE_IN_PROGRESS   | AWS::ECS::Service                         | myWebApp-service/Service/Service (myWebAppserviceService69454CE8) Resource creation Initiated
+[AWS cloudformation 200 0.071s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.215s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.073s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.199s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 41/44 | 5:57:05 PM | CREATE_COMPLETE      | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PrivateSubnet1/DefaultRoute (myWebAppclusterVpcPrivateSubnet1DefaultRoute39323A05)
+ 41/44 | 5:57:06 PM | CREATE_COMPLETE      | AWS::EC2::Route                           | myWebApp-cluster/Vpc/PrivateSubnet2/DefaultRoute (myWebAppclusterVpcPrivateSubnet2DefaultRouteD1AB9746)
+[AWS cloudformation 200 0.078s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.214s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.08s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.214s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.072s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.197s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.071s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.225s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.09s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.215s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.07s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.211s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+ 42/44 | 5:57:37 PM | CREATE_COMPLETE      | AWS::AutoScaling::AutoScalingGroup        | myWebApp-cluster/myWebApp-scaling-group/ASG (myWebAppclustermyWebAppscalinggroupASG878D8358)
+[AWS cloudformation 200 0.071s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.214s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+[AWS cloudformation 200 0.071s 0 retries] describeStacks({ StackName: 'EcsEc2Stack' })
+Stack EcsEc2Stack has an ongoing operation in progress and is not stable (CREATE_IN_PROGRESS)
+[AWS cloudformation 200 0.213s 0 retries] describeStackEvents({ StackName: 'EcsEc2Stack', NextToken: undefined })
+# this then repeats "forever"
+
+
+
+
+
+
+# from CloudFormation Events
+2021-04-10 17:57:37 UTC-0400	myWebAppclustermyWebAppscalinggroupASG878D8358	CREATE_COMPLETE	-
+2021-04-10 17:57:06 UTC-0400	myWebAppclusterVpcPrivateSubnet2DefaultRouteD1AB9746	CREATE_COMPLETE	-
+2021-04-10 17:57:05 UTC-0400	myWebAppclusterVpcPrivateSubnet1DefaultRoute39323A05	CREATE_COMPLETE	-
+2021-04-10 17:56:55 UTC-0400	myWebAppserviceService69454CE8	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:56:54 UTC-0400	myWebAppserviceService69454CE8	CREATE_IN_PROGRESS	-
+2021-04-10 17:56:52 UTC-0400	myWebAppserviceLBPublicListener663538AA	CREATE_COMPLETE	-
+2021-04-10 17:56:52 UTC-0400	myWebAppserviceLBPublicListener663538AA	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:56:51 UTC-0400	myWebAppclusterVpcPrivateSubnet2DefaultRouteD1AB9746	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:56:50 UTC-0400	myWebAppclusterVpcPrivateSubnet2DefaultRouteD1AB9746	CREATE_IN_PROGRESS	-
+2021-04-10 17:56:50 UTC-0400	myWebAppserviceLBPublicListener663538AA	CREATE_IN_PROGRESS	-
+2021-04-10 17:56:49 UTC-0400	myWebAppclusterVpcPrivateSubnet1DefaultRoute39323A05	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:56:49 UTC-0400	myWebAppclusterVpcPrivateSubnet1DefaultRoute39323A05	CREATE_IN_PROGRESS	-
+2021-04-10 17:56:49 UTC-0400	myWebAppserviceLB2F5390E3	CREATE_COMPLETE	-
+2021-04-10 17:56:48 UTC-0400	myWebAppclusterVpcPublicSubnet2NATGateway8767845D	CREATE_COMPLETE	-
+2021-04-10 17:56:48 UTC-0400	myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC	CREATE_COMPLETE	-
+2021-04-10 17:56:45 UTC-0400	myWebAppclustermyWebAppscalinggroupASG878D8358	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:56:45 UTC-0400	myWebAppclustermyWebAppscalinggroupASG878D8358	CREATE_IN_PROGRESS	-
+2021-04-10 17:56:43 UTC-0400	myWebAppclustermyWebAppscalinggroupLaunchConfig33C3FD7E	CREATE_COMPLETE	-
+2021-04-10 17:56:43 UTC-0400	myWebAppclustermyWebAppscalinggroupLaunchConfig33C3FD7E	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:56:43 UTC-0400	myWebAppclustermyWebAppscalinggroupLaunchConfig33C3FD7E	CREATE_IN_PROGRESS	-
+2021-04-10 17:56:41 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B	CREATE_COMPLETE	-
+2021-04-10 17:55:18 UTC-0400	myWebAppserviceLB2F5390E3	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:55:17 UTC-0400	myWebAppserviceLB2F5390E3	CREATE_IN_PROGRESS	-
+2021-04-10 17:55:16 UTC-0400	myWebAppclusterVpcPrivateSubnet2RouteTableAssociation7657CEB3	CREATE_COMPLETE	-
+2021-04-10 17:55:16 UTC-0400	myWebAppclusterVpcPublicSubnet2RouteTableAssociationA13629DF	CREATE_COMPLETE	-
+2021-04-10 17:55:16 UTC-0400	myWebAppclusterVpcPrivateSubnet1RouteTableAssociation4F20DD2C	CREATE_COMPLETE	-
+2021-04-10 17:55:16 UTC-0400	myWebAppclusterVpcPublicSubnet1RouteTableAssociationC4BBCBAA	CREATE_COMPLETE	-
+2021-04-10 17:55:15 UTC-0400	myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA	CREATE_COMPLETE	-
+2021-04-10 17:55:15 UTC-0400	myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030	CREATE_COMPLETE	-
+2021-04-10 17:55:01 UTC-0400	myWebAppclusterVpcPrivateSubnet2RouteTableAssociation7657CEB3	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:55:01 UTC-0400	myWebAppclusterVpcPublicSubnet2RouteTableAssociationA13629DF	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:55:01 UTC-0400	myWebAppclusterVpcPrivateSubnet1RouteTableAssociation4F20DD2C	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:55:01 UTC-0400	myWebAppclusterVpcPublicSubnet2NATGateway8767845D	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:55:01 UTC-0400	myWebAppclusterVpcPublicSubnet2NATGateway8767845D	CREATE_IN_PROGRESS	-
+2021-04-10 17:55:01 UTC-0400	myWebAppclusterVpcPrivateSubnet2RouteTableAssociation7657CEB3	CREATE_IN_PROGRESS	-
+2021-04-10 17:55:00 UTC-0400	myWebAppclusterVpcPublicSubnet1RouteTableAssociationC4BBCBAA	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:55:00 UTC-0400	myWebAppclusterVpcPrivateSubnet1RouteTableAssociation4F20DD2C	CREATE_IN_PROGRESS	-
+2021-04-10 17:55:00 UTC-0400	myWebAppclusterVpcPublicSubnet2RouteTableAssociationA13629DF	CREATE_IN_PROGRESS	-
+2021-04-10 17:55:00 UTC-0400	myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:55:00 UTC-0400	myWebAppclusterVpcPublicSubnet1RouteTableAssociationC4BBCBAA	CREATE_IN_PROGRESS	-
+2021-04-10 17:55:00 UTC-0400	myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC	CREATE_IN_PROGRESS	-
+2021-04-10 17:55:00 UTC-0400	myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:55:00 UTC-0400	myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:59 UTC-0400	myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:59 UTC-0400	myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:59 UTC-0400	myWebAppclusterVpcPrivateSubnet2SubnetB891632D	CREATE_COMPLETE	-
+2021-04-10 17:54:59 UTC-0400	myWebAppclusterVpcPublicSubnet2SubnetB0F1F136	CREATE_COMPLETE	-
+2021-04-10 17:54:59 UTC-0400	myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6	CREATE_COMPLETE	-
+2021-04-10 17:54:58 UTC-0400	myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE	CREATE_COMPLETE	-
+2021-04-10 17:54:58 UTC-0400	myWebAppclusterVpcVPCGWA93107E6	CREATE_COMPLETE	-
+2021-04-10 17:54:55 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F	CREATE_COMPLETE	-
+2021-04-10 17:54:54 UTC-0400	myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140	CREATE_COMPLETE	-
+2021-04-10 17:54:50 UTC-0400	myWebAppserviceLBSecurityGrouptoEcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD36212073276865535475EDF3F	CREATE_COMPLETE	-
+2021-04-10 17:54:50 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceSecurityGroupfromEcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995327686553586895952	CREATE_COMPLETE	-
+2021-04-10 17:54:49 UTC-0400	myWebAppserviceLBSecurityGrouptoEcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD36212073276865535475EDF3F	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:49 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceSecurityGroupfromEcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995327686553586895952	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:49 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceSecurityGroupfromEcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995327686553586895952	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:49 UTC-0400	myWebAppserviceLBSecurityGrouptoEcsEc2StackmyWebAppclustermyWebAppscalinggroupInstanceSecurityGroupD36212073276865535475EDF3F	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:48 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552	CREATE_COMPLETE	-
+2021-04-10 17:54:47 UTC-0400	myWebAppserviceLBSecurityGroup22A25AD0	CREATE_COMPLETE	-
+2021-04-10 17:54:47 UTC-0400	myWebAppserviceLBSecurityGroup22A25AD0	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:47 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07	CREATE_COMPLETE	-
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcPublicSubnet1RouteTable85AA218F	CREATE_COMPLETE	-
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcPublicSubnet2RouteTableD27465B9	CREATE_COMPLETE	-
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C	CREATE_COMPLETE	-
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcPrivateSubnet2SubnetB891632D	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcPublicSubnet2SubnetB0F1F136	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcPrivateSubnet2SubnetB891632D	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:43 UTC-0400	myWebAppclusterVpcVPCGWA93107E6	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:42 UTC-0400	myWebAppserviceLBPublicListenerECSGroup5A73B327	CREATE_COMPLETE	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:42 UTC-0400	myWebAppserviceTaskDefCE026C91	CREATE_COMPLETE	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet2RouteTableD27465B9	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet1RouteTable85AA218F	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet2SubnetB0F1F136	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppserviceLBPublicListenerECSGroup5A73B327	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcVPCGWA93107E6	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppserviceTaskDefCE026C91	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet1RouteTable85AA218F	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceSecurityGroup1238D552	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppserviceLBSecurityGroup22A25AD0	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet2RouteTableD27465B9	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppserviceLBPublicListenerECSGroup5A73B327	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet1EIPC3F72457	CREATE_COMPLETE	-
+2021-04-10 17:54:42 UTC-0400	myWebAppclusterVpcPublicSubnet2EIP04C95BBF	CREATE_COMPLETE	-
+2021-04-10 17:54:41 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:41 UTC-0400	myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:41 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceRoleDefaultPolicy748C761F	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:40 UTC-0400	myWebAppclusterVpc0DBA491A	CREATE_COMPLETE	-
+2021-04-10 17:54:40 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:40 UTC-0400	myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:40 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceProfile7046512B	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:40 UTC-0400	myWebAppserviceTaskDefCE026C91	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:40 UTC-0400	myWebAppclusterVpcIGWD959D842	CREATE_COMPLETE	-
+2021-04-10 17:54:38 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D	CREATE_COMPLETE	-
+2021-04-10 17:54:38 UTC-0400	myWebAppserviceTaskDefTaskRole1FF52BF5	CREATE_COMPLETE	-
+2021-04-10 17:54:38 UTC-0400	myWebAppserviceTaskDefExecutionRole8B06806B	CREATE_COMPLETE	-
+2021-04-10 17:54:29 UTC-0400	myWebAppcluster79FAB8F6	CREATE_COMPLETE	-
+2021-04-10 17:54:26 UTC-0400	myWebAppclusterVpcPublicSubnet1EIPC3F72457	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:26 UTC-0400	myWebAppclusterVpcPublicSubnet2EIP04C95BBF	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:25 UTC-0400	myWebAppserviceTaskDefwebLogGroup77E2E3B3	CREATE_COMPLETE	-
+2021-04-10 17:54:25 UTC-0400	CDKMetadata	CREATE_COMPLETE	-
+2021-04-10 17:54:25 UTC-0400	myWebAppserviceTaskDefwebLogGroup77E2E3B3	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:25 UTC-0400	CDKMetadata	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:25 UTC-0400	myWebAppcluster79FAB8F6	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:24 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:24 UTC-0400	myWebAppclusterVpc0DBA491A	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:24 UTC-0400	myWebAppclustermyWebAppscalinggroupInstanceRoleC43EDD6D	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppclusterVpcIGWD959D842	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:24 UTC-0400	myWebAppserviceTaskDefExecutionRole8B06806B	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:24 UTC-0400	myWebAppserviceTaskDefTaskRole1FF52BF5	CREATE_IN_PROGRESS	Resource creation Initiated
+2021-04-10 17:54:24 UTC-0400	CDKMetadata	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppclusterVpcPublicSubnet1EIPC3F72457	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppclusterVpc0DBA491A	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppclusterVpcPublicSubnet2EIP04C95BBF	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppserviceTaskDefwebLogGroup77E2E3B3	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppclusterVpcIGWD959D842	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppserviceTaskDefTaskRole1FF52BF5	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppserviceTaskDefExecutionRole8B06806B	CREATE_IN_PROGRESS	-
+2021-04-10 17:54:24 UTC-0400	myWebAppcluster79FAB8F6	CREATE_IN_PROGRESS	-
+2021-04-10 17:53:59 UTC-0400	EcsEc2Stack	CREATE_IN_PROGRESS	User Initiated
+2021-04-10 17:53:54 UTC-0400	EcsEc2Stack	REVIEW_IN_PROGRESS	User Initiated
+
+Feedback
+English (US)
+© 2008 - 2021, Amazon Web Services, Inc. or its affiliates. All rights reserved.
+Privacy Policy
+Terms of Use
