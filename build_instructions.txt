@@ -60,3 +60,5 @@ cdk deploy
 # and after a ONE HOUR wait during deployment, saw this error!
 # 45/53 | 3:02:14 PM | CREATE_FAILED        | AWS::AutoScaling::AutoScalingGroup        |
 # myWebApp-cluster/myWebApp-scaling-group/ASG (myWebAppclustermyWebAppscalinggroupASG878D8358) Group did not stabilize. {current/minSize/maxSize} group size = {0/1/1}. Failed Scaling Activity: The architecture 'arm64' of the specified instance type does not match the architecture 'x86_64' of the specified AMI. Specify an instance type and an AMI that have matching architectures, and try again. You can use 'describe-instance-types' or 'describe-images' to discover the architecture of the instance type or AMI. Launching EC2 instance failed.
+
+# found info on official dotnet images: https://hub.docker.com/_/microsoft-dotnet-aspnet/

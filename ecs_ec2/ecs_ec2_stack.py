@@ -24,7 +24,7 @@ class EcsEc2Stack(cdk.Stack):
         # Free trial until June 30th 2021
         # but not sure how to use!
         cluster.add_capacity('myWebApp-scaling-group',
-          instance_type=ec2.InstanceType('t2.micro'), # TODO 't4g.micro'
+          instance_type=ec2.InstanceType('t4g.micro'),
           desired_capacity=1,
           task_drain_time=cdk.Duration.seconds(0)
         )
