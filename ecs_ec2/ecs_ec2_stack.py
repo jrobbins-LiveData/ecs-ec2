@@ -2,7 +2,6 @@
 from os import path
 
 from aws_cdk import aws_ec2 as ec2
-from aws_cdk import aws_ecr as ecr
 from aws_cdk import aws_ecs as ecs
 from aws_cdk import aws_ecs_patterns as ecs_patterns
 from aws_cdk import core as cdk
@@ -33,20 +32,14 @@ class EcsEc2Stack(cdk.Stack):
 
         # https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_ecs_patterns/ApplicationLoadBalancedEc2Service.html
         load_balanced_service = ecs_patterns.ApplicationLoadBalancedEc2Service(self, 'myWebApp-service',
-          # cpu=256, # TODO
           memory_limit_mib=512 , # TODO
-          # memory_reservation_mib=512, # TODO
           cluster=cluster,
           desired_count=1,
           max_healthy_percent=100,
           min_healthy_percent=0, # TODO daemon question
           service_name='myWebApp-service',
           task_image_options={
-            "image": asset,
-            # "container_port": 80 # TODO
+            "image": asset
           },
           public_load_balancer=True
         )
-
-        cdk.CfnOutput(self, 'ClusterArn', value=load_balanced_service.cluster.cluster_arn)
-        cdk.CfnOutput(self, 'DnsName', value=load_balanced_service.load_balancer.load_balancer_dns_name)
