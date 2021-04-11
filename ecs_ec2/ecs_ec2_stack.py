@@ -34,7 +34,8 @@ class EcsEc2Stack(cdk.Stack):
         # https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_ecs_patterns/ApplicationLoadBalancedEc2Service.html
         load_balanced_service = ecs_patterns.ApplicationLoadBalancedEc2Service(self, 'myWebApp-service',
           # cpu=256, # TODO
-          memory_limit_mib=1024, # TODO
+          memory_limit_mib=512 , # TODO
+          # memory_reservation_mib=512, # TODO
           cluster=cluster,
           desired_count=1,
           max_healthy_percent=100,
@@ -42,7 +43,7 @@ class EcsEc2Stack(cdk.Stack):
           service_name='myWebApp-service',
           task_image_options={
             "image": asset,
-            "container_port": 80
+            # "container_port": 80 # TODO
           },
           public_load_balancer=True
         )
