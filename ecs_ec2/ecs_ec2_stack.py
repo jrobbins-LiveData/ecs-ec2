@@ -12,23 +12,23 @@ class EcsEc2Stack(cdk.Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # Docker build
-        this_dir = path.dirname(__file__)
-        asset = ecs.ContainerImage.from_asset(path.join(this_dir, 'myWebApp'))
+        asset = ecs.ContainerImage.from_asset(path.join(path.dirname(__file__), 'myWebApp'))
 
         # ECS cluster/resources
-        cluster = ecs.Cluster(self, 'myWebApp-cluster',
-          cluster_name='myWebApp-cluster'
-        )
 
+        # NOTE 't4g.micro' is a Graviton2 EC2 type
         # https://aws.amazon.com/ec2/graviton/
         # Free trial until June 30th 2021
-        # but not sure how to use!
-        cluster.add_capacity('myWebApp-scaling-group',
-          instance_type=ec2.InstanceType('t4g.micro'),
-          desired_capacity=1,
-          task_drain_time=cdk.Duration.seconds(0)
+        
+        cluster = ecs.Cluster(self, 'myWebApp-cluster',
+          capacity=dict(
+            instance_type=ec2.InstanceType('t4g.micro'),
+            machine_image=ecs.EcsOptimizedImage.amazon_linux2(ecs.AmiHardwareType.ARM), # needed for Graviton2
+            desired_capacity=1,
+            task_drain_time=cdk.Duration.seconds(0)
+          ),
+          container_insights=True
         )
-
 
         # https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_ecs_patterns/ApplicationLoadBalancedEc2Service.html
         load_balanced_service = ecs_patterns.ApplicationLoadBalancedEc2Service(self, 'myWebApp-service',
