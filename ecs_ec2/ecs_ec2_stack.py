@@ -4,9 +4,9 @@ from os import path
 from aws_cdk import aws_ec2 as ec2
 from aws_cdk import aws_ecs as ecs
 from aws_cdk import aws_ecs_patterns as ecs_patterns
+from aws_cdk import aws_route53 as route53
 from aws_cdk import core as cdk
 from aws_cdk.aws_elasticloadbalancingv2 import ApplicationProtocol
-from aws_cdk.aws_route53 import HostedZone
 
 
 class EcsEc2Stack(cdk.Stack):
@@ -37,11 +37,10 @@ class EcsEc2Stack(cdk.Stack):
           container_insights=True
         )
 
-
-        # hosted_zone = HostedZone.from_hosted_zone_attributes(self, 'myTestZone', 
-        #   hosted_zone_id='Z05838872A1WJ5MH2UI38',
-        #   zone_name='jsr-ecs-ec2-test.com'
-        # )
+        hosted_zone = route53.HostedZone.from_hosted_zone_attributes(self, 'myTestZone', 
+          hosted_zone_id='Z10366642MKE2T8K2STDR',
+          zone_name='livedata-dev-work.com'
+        )
 
         # https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_ecs_patterns/ApplicationLoadBalancedEc2Service.html
         load_balanced_service = ecs_patterns.ApplicationLoadBalancedEc2Service(self, 'myWebApp-service',
@@ -56,10 +55,10 @@ class EcsEc2Stack(cdk.Stack):
           task_image_options={
             'image': asset
           },
-          # protocol=ApplicationProtocol.HTTPS,
-          # redirect_http=True,
-          # domain_name='alb.jsr-ecs-ec2-test.com',
-          # domain_zone=hosted_zone,
+          protocol=ApplicationProtocol.HTTPS,
+          redirect_http=True,
+          domain_name='alb.livedata-dev-work.com',
+          domain_zone=hosted_zone,
           public_load_balancer=True
         )
 
