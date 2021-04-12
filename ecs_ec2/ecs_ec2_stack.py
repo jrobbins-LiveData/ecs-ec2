@@ -5,6 +5,8 @@ from aws_cdk import aws_ec2 as ec2
 from aws_cdk import aws_ecs as ecs
 from aws_cdk import aws_ecs_patterns as ecs_patterns
 from aws_cdk import core as cdk
+from aws_cdk.aws_elasticloadbalancingv2 import ApplicationProtocol
+from aws_cdk.aws_route53 import HostedZone
 
 
 class EcsEc2Stack(cdk.Stack):
@@ -29,17 +31,17 @@ class EcsEc2Stack(cdk.Stack):
           capacity=dict(
             instance_type=ec2.InstanceType('t4g.micro'),
             machine_image=ecs.EcsOptimizedImage.amazon_linux2(ecs.AmiHardwareType.ARM), # needed for Graviton2, works
-
-            # NOTE this might be the Bottlerocket issue: https://github.com/aws/aws-cdk/issues/9945
-            # machine_image_type=ecs.MachineImageType.BOTTLEROCKET, # NOTE did not seem to work 
-            # machine_image=ecs.BottleRocketImage(variant=ecs.BottlerocketEcsVariant.AWS_ECS_1), # NOTE did not seem to work          
-            # machine_image=ec2.MachineImage.from_ssm_parameter('/aws/service/bottlerocket/aws-ecs-1/arm64/latest/image_id', ec2.OperatingSystemType.LINUX), # NOTE did not seem to work
-
             desired_capacity=1,
             task_drain_time=cdk.Duration.seconds(0)
           ),
           container_insights=True
         )
+
+
+        # hosted_zone = HostedZone.from_hosted_zone_attributes(self, 'myTestZone', 
+        #   hosted_zone_id='Z05838872A1WJ5MH2UI38',
+        #   zone_name='jsr-ecs-ec2-test.com'
+        # )
 
         # https://docs.aws.amazon.com/cdk/api/latest/python/aws_cdk.aws_ecs_patterns/ApplicationLoadBalancedEc2Service.html
         load_balanced_service = ecs_patterns.ApplicationLoadBalancedEc2Service(self, 'myWebApp-service',
@@ -52,8 +54,12 @@ class EcsEc2Stack(cdk.Stack):
           min_healthy_percent=0, # TODO daemon question
           service_name='myWebApp-service',
           task_image_options={
-            "image": asset
+            'image': asset
           },
+          # protocol=ApplicationProtocol.HTTPS,
+          # redirect_http=True,
+          # domain_name='alb.jsr-ecs-ec2-test.com',
+          # domain_zone=hosted_zone,
           public_load_balancer=True
         )
 
