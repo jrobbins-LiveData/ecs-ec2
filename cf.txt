@@ -1,0 +1,739 @@
+Resources:
+  myWebAppcluster79FAB8F6:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterSettings:
+        - Name: containerInsights
+          Value: enabled
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Resource
+  myWebAppclusterVpc0DBA491A:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: default
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/Resource
+  myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.0.0/18
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      AvailabilityZone:
+        Fn::Select:
+          - 0
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: aws-cdk:subnet-name
+          Value: Public
+        - Key: aws-cdk:subnet-type
+          Value: Public
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/Subnet
+  myWebAppclusterVpcPublicSubnet1RouteTable85AA218F:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/RouteTable
+  myWebAppclusterVpcPublicSubnet1RouteTableAssociationC4BBCBAA:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: myWebAppclusterVpcPublicSubnet1RouteTable85AA218F
+      SubnetId:
+        Ref: myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/RouteTableAssociation
+  myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: myWebAppclusterVpcPublicSubnet1RouteTable85AA218F
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: myWebAppclusterVpcIGWD959D842
+    DependsOn:
+      - myWebAppclusterVpcVPCGWA93107E6
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/DefaultRoute
+  myWebAppclusterVpcPublicSubnet1EIPC3F72457:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/EIP
+  myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId:
+        Fn::GetAtt:
+          - myWebAppclusterVpcPublicSubnet1EIPC3F72457
+          - AllocationId
+      SubnetId:
+        Ref: myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet1/NATGateway
+  myWebAppclusterVpcPublicSubnet2SubnetB0F1F136:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.64.0/18
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      AvailabilityZone:
+        Fn::Select:
+          - 1
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: aws-cdk:subnet-name
+          Value: Public
+        - Key: aws-cdk:subnet-type
+          Value: Public
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/Subnet
+  myWebAppclusterVpcPublicSubnet2RouteTableD27465B9:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/RouteTable
+  myWebAppclusterVpcPublicSubnet2RouteTableAssociationA13629DF:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: myWebAppclusterVpcPublicSubnet2RouteTableD27465B9
+      SubnetId:
+        Ref: myWebAppclusterVpcPublicSubnet2SubnetB0F1F136
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/RouteTableAssociation
+  myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: myWebAppclusterVpcPublicSubnet2RouteTableD27465B9
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: myWebAppclusterVpcIGWD959D842
+    DependsOn:
+      - myWebAppclusterVpcVPCGWA93107E6
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/DefaultRoute
+  myWebAppclusterVpcPublicSubnet2EIP04C95BBF:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/EIP
+  myWebAppclusterVpcPublicSubnet2NATGateway8767845D:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId:
+        Fn::GetAtt:
+          - myWebAppclusterVpcPublicSubnet2EIP04C95BBF
+          - AllocationId
+      SubnetId:
+        Ref: myWebAppclusterVpcPublicSubnet2SubnetB0F1F136
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PublicSubnet2/NATGateway
+  myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.128.0/18
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      AvailabilityZone:
+        Fn::Select:
+          - 0
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: aws-cdk:subnet-name
+          Value: Private
+        - Key: aws-cdk:subnet-type
+          Value: Private
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1/Subnet
+  myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1/RouteTable
+  myWebAppclusterVpcPrivateSubnet1RouteTableAssociation4F20DD2C:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C
+      SubnetId:
+        Ref: myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1/RouteTableAssociation
+  myWebAppclusterVpcPrivateSubnet1DefaultRoute39323A05:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: myWebAppclusterVpcPrivateSubnet1RouteTable7CCE892C
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId:
+        Ref: myWebAppclusterVpcPublicSubnet1NATGateway27A28EFC
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet1/DefaultRoute
+  myWebAppclusterVpcPrivateSubnet2SubnetB891632D:
+    Type: AWS::EC2::Subnet
+    Properties:
+      CidrBlock: 10.0.192.0/18
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      AvailabilityZone:
+        Fn::Select:
+          - 1
+          - Fn::GetAZs: ""
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: aws-cdk:subnet-name
+          Value: Private
+        - Key: aws-cdk:subnet-type
+          Value: Private
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2/Subnet
+  myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2/RouteTable
+  myWebAppclusterVpcPrivateSubnet2RouteTableAssociation7657CEB3:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId:
+        Ref: myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07
+      SubnetId:
+        Ref: myWebAppclusterVpcPrivateSubnet2SubnetB891632D
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2/RouteTableAssociation
+  myWebAppclusterVpcPrivateSubnet2DefaultRouteD1AB9746:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: myWebAppclusterVpcPrivateSubnet2RouteTableFABFCE07
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId:
+        Ref: myWebAppclusterVpcPublicSubnet2NATGateway8767845D
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/PrivateSubnet2/DefaultRoute
+  myWebAppclusterVpcIGWD959D842:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/Vpc
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/IGW
+  myWebAppclusterVpcVPCGWA93107E6:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+      InternetGatewayId:
+        Ref: myWebAppclusterVpcIGWD959D842
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/Vpc/VPCGW
+  myWebAppclusterDefaultAutoScalingGroupInstanceSecurityGroup2D9B231E:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup/InstanceSecurityGroup
+      SecurityGroupEgress:
+        - CidrIp: 0.0.0.0/0
+          Description: Allow all outbound traffic by default
+          IpProtocol: "-1"
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup/InstanceSecurityGroup/Resource
+  myWebAppclusterDefaultAutoScalingGroupInstanceSecurityGroupfromEcsEc2StackmyWebAppserviceLBSecurityGroup4CD919953276865535BAC2E738:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      IpProtocol: tcp
+      Description: Load balancer to target
+      FromPort: 32768
+      GroupId:
+        Fn::GetAtt:
+          - myWebAppclusterDefaultAutoScalingGroupInstanceSecurityGroup2D9B231E
+          - GroupId
+      SourceSecurityGroupId:
+        Fn::GetAtt:
+          - myWebAppserviceLBSecurityGroup22A25AD0
+          - GroupId
+      ToPort: 65535
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup/InstanceSecurityGroup/from EcsEc2StackmyWebAppserviceLBSecurityGroup4CD91995:32768-65535
+  myWebAppclusterDefaultAutoScalingGroupInstanceRoleBF6928E7:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                Fn::Join:
+                  - ""
+                  - - ec2.
+                    - Ref: AWS::URLSuffix
+        Version: "2012-10-17"
+      Tags:
+        - Key: Name
+          Value: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup/InstanceRole/Resource
+  myWebAppclusterDefaultAutoScalingGroupInstanceRoleDefaultPolicy3F4DDBC5:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - ecs:DeregisterContainerInstance
+              - ecs:RegisterContainerInstance
+              - ecs:Submit*
+            Effect: Allow
+            Resource:
+              Fn::GetAtt:
+                - myWebAppcluster79FAB8F6
+                - Arn
+          - Action:
+              - ecs:Poll
+              - ecs:StartTelemetrySession
+            Condition:
+              ArnEquals:
+                ecs:cluster:
+                  Fn::GetAtt:
+                    - myWebAppcluster79FAB8F6
+                    - Arn
+            Effect: Allow
+            Resource: "*"
+          - Action:
+              - ecs:DiscoverPollEndpoint
+              - ecr:GetAuthorizationToken
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Effect: Allow
+            Resource: "*"
+        Version: "2012-10-17"
+      PolicyName: myWebAppclusterDefaultAutoScalingGroupInstanceRoleDefaultPolicy3F4DDBC5
+      Roles:
+        - Ref: myWebAppclusterDefaultAutoScalingGroupInstanceRoleBF6928E7
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup/InstanceRole/DefaultPolicy/Resource
+  myWebAppclusterDefaultAutoScalingGroupInstanceProfileA6DA63E6:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - Ref: myWebAppclusterDefaultAutoScalingGroupInstanceRoleBF6928E7
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup/InstanceProfile
+  myWebAppclusterDefaultAutoScalingGroupLaunchConfig378EBF6F:
+    Type: AWS::AutoScaling::LaunchConfiguration
+    Properties:
+      ImageId:
+        Ref: SsmParameterValueawsserviceecsoptimizedamiamazonlinux2arm64recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter
+      InstanceType: t4g.micro
+      IamInstanceProfile:
+        Ref: myWebAppclusterDefaultAutoScalingGroupInstanceProfileA6DA63E6
+      SecurityGroups:
+        - Fn::GetAtt:
+            - myWebAppclusterDefaultAutoScalingGroupInstanceSecurityGroup2D9B231E
+            - GroupId
+      UserData:
+        Fn::Base64:
+          Fn::Join:
+            - ""
+            - - |-
+                #!/bin/bash
+                echo ECS_CLUSTER=
+              - Ref: myWebAppcluster79FAB8F6
+              - |-2
+                 >> /etc/ecs/ecs.config
+                sudo iptables --insert FORWARD 1 --in-interface docker+ --destination 169.254.169.254/32 --jump DROP
+                sudo service iptables save
+                echo ECS_AWSVPC_BLOCK_IMDS=true >> /etc/ecs/ecs.config
+    DependsOn:
+      - myWebAppclusterDefaultAutoScalingGroupInstanceRoleDefaultPolicy3F4DDBC5
+      - myWebAppclusterDefaultAutoScalingGroupInstanceRoleBF6928E7
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup/LaunchConfig
+  myWebAppclusterDefaultAutoScalingGroupASG0E151312:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      MaxSize: "1"
+      MinSize: "1"
+      DesiredCapacity: "1"
+      LaunchConfigurationName:
+        Ref: myWebAppclusterDefaultAutoScalingGroupLaunchConfig378EBF6F
+      Tags:
+        - Key: Name
+          PropagateAtLaunch: true
+          Value: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup
+      VPCZoneIdentifier:
+        - Ref: myWebAppclusterVpcPrivateSubnet1Subnet27FCFAC6
+        - Ref: myWebAppclusterVpcPrivateSubnet2SubnetB891632D
+    UpdatePolicy:
+      AutoScalingReplacingUpdate:
+        WillReplace: true
+      AutoScalingScheduledAction:
+        IgnoreUnmodifiedGroupSizeProperties: true
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-cluster/DefaultAutoScalingGroup/ASG
+  myWebAppserviceLB2F5390E3:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      LoadBalancerAttributes:
+        - Key: deletion_protection.enabled
+          Value: "false"
+      Scheme: internet-facing
+      SecurityGroups:
+        - Fn::GetAtt:
+            - myWebAppserviceLBSecurityGroup22A25AD0
+            - GroupId
+      Subnets:
+        - Ref: myWebAppclusterVpcPublicSubnet1Subnet2FFD73EE
+        - Ref: myWebAppclusterVpcPublicSubnet2SubnetB0F1F136
+      Type: application
+    DependsOn:
+      - myWebAppclusterVpcPublicSubnet1DefaultRoute36D5B5BA
+      - myWebAppclusterVpcPublicSubnet2DefaultRoute928D9030
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/Resource
+  myWebAppserviceLBSecurityGroup22A25AD0:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Automatically created Security Group for ELB EcsEc2StackmyWebAppserviceLB8B1CA53A
+      SecurityGroupIngress:
+        - CidrIp: 0.0.0.0/0
+          Description: Allow from anyone on port 80
+          FromPort: 80
+          IpProtocol: tcp
+          ToPort: 80
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/SecurityGroup/Resource
+  myWebAppserviceLBSecurityGrouptoEcsEc2StackmyWebAppclusterDefaultAutoScalingGroupInstanceSecurityGroupD02E63B532768655357C56F908:
+    Type: AWS::EC2::SecurityGroupEgress
+    Properties:
+      GroupId:
+        Fn::GetAtt:
+          - myWebAppserviceLBSecurityGroup22A25AD0
+          - GroupId
+      IpProtocol: tcp
+      Description: Load balancer to target
+      DestinationSecurityGroupId:
+        Fn::GetAtt:
+          - myWebAppclusterDefaultAutoScalingGroupInstanceSecurityGroup2D9B231E
+          - GroupId
+      FromPort: 32768
+      ToPort: 65535
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/SecurityGroup/to EcsEc2StackmyWebAppclusterDefaultAutoScalingGroupInstanceSecurityGroupD02E63B5:32768-65535
+  myWebAppserviceLBPublicListener663538AA:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - TargetGroupArn:
+            Ref: myWebAppserviceLBPublicListenerECSGroup5A73B327
+          Type: forward
+      LoadBalancerArn:
+        Ref: myWebAppserviceLB2F5390E3
+      Port: 80
+      Protocol: HTTP
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/PublicListener/Resource
+  myWebAppserviceLBPublicListenerECSGroup5A73B327:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Port: 80
+      Protocol: HTTP
+      TargetType: instance
+      VpcId:
+        Ref: myWebAppclusterVpc0DBA491A
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/LB/PublicListener/ECSGroup/Resource
+  myWebAppserviceTaskDefTaskRole1FF52BF5:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/TaskRole/Resource
+  myWebAppserviceTaskDefCE026C91:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      ContainerDefinitions:
+        - Essential: true
+          Image:
+            Fn::Join:
+              - ""
+              - - Ref: AWS::AccountId
+                - .dkr.ecr.
+                - Ref: AWS::Region
+                - "."
+                - Ref: AWS::URLSuffix
+                - /aws-cdk/assets:7a27816d505bef4d93a159e4d5760921aad22c4dff5fd1af261ab623498d4afe
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group:
+                Ref: myWebAppserviceTaskDefwebLogGroup77E2E3B3
+              awslogs-stream-prefix: myWebApp-service
+              awslogs-region:
+                Ref: AWS::Region
+          Memory: 512
+          Name: web
+          PortMappings:
+            - ContainerPort: 80
+              HostPort: 0
+              Protocol: tcp
+      ExecutionRoleArn:
+        Fn::GetAtt:
+          - myWebAppserviceTaskDefExecutionRole8B06806B
+          - Arn
+      Family: EcsEc2StackmyWebAppserviceTaskDef7C68CEC9
+      NetworkMode: bridge
+      RequiresCompatibilities:
+        - EC2
+      TaskRoleArn:
+        Fn::GetAtt:
+          - myWebAppserviceTaskDefTaskRole1FF52BF5
+          - Arn
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/Resource
+  myWebAppserviceTaskDefwebLogGroup77E2E3B3:
+    Type: AWS::Logs::LogGroup
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/web/LogGroup/Resource
+  myWebAppserviceTaskDefExecutionRole8B06806B:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+        Version: "2012-10-17"
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/ExecutionRole/Resource
+  myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Statement:
+          - Action:
+              - ecr:BatchCheckLayerAvailability
+              - ecr:GetDownloadUrlForLayer
+              - ecr:BatchGetImage
+            Effect: Allow
+            Resource:
+              Fn::Join:
+                - ""
+                - - "arn:"
+                  - Ref: AWS::Partition
+                  - ":ecr:"
+                  - Ref: AWS::Region
+                  - ":"
+                  - Ref: AWS::AccountId
+                  - :repository/aws-cdk/assets
+          - Action: ecr:GetAuthorizationToken
+            Effect: Allow
+            Resource: "*"
+          - Action:
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Effect: Allow
+            Resource:
+              Fn::GetAtt:
+                - myWebAppserviceTaskDefwebLogGroup77E2E3B3
+                - Arn
+        Version: "2012-10-17"
+      PolicyName: myWebAppserviceTaskDefExecutionRoleDefaultPolicy28276140
+      Roles:
+        - Ref: myWebAppserviceTaskDefExecutionRole8B06806B
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/TaskDef/ExecutionRole/DefaultPolicy/Resource
+  myWebAppserviceService69454CE8:
+    Type: AWS::ECS::Service
+    Properties:
+      Cluster:
+        Ref: myWebAppcluster79FAB8F6
+      DeploymentConfiguration:
+        MaximumPercent: 100
+        MinimumHealthyPercent: 0
+      DesiredCount: 1
+      EnableECSManagedTags: false
+      HealthCheckGracePeriodSeconds: 60
+      LaunchType: EC2
+      LoadBalancers:
+        - ContainerName: web
+          ContainerPort: 80
+          TargetGroupArn:
+            Ref: myWebAppserviceLBPublicListenerECSGroup5A73B327
+      SchedulingStrategy: REPLICA
+      ServiceName: myWebApp-service
+      TaskDefinition:
+        Ref: myWebAppserviceTaskDefCE026C91
+    DependsOn:
+      - myWebAppserviceLBPublicListenerECSGroup5A73B327
+      - myWebAppserviceLBPublicListener663538AA
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/myWebApp-service/Service/Service
+  CDKMetadata:
+    Type: AWS::CDK::Metadata
+    Properties:
+      Analytics: v2:deflate64:H4sIAAAAAAAACn1SwW7bMAz9lt4VdcsORW9L06AwEHRGHPTOKIyjxZYMiUoRGP73UbJde+2wkx4fnyTykd/l44P8dvcT3v1CHS/3rbIOZVsQqIvYobfBKRTrk8nBQY2ELga/AjWBxMp7JJaW2pRibY0nFxRFwfwmJ46atDWdiL+0qLxs11Xww2Mj3KjlHvzlGU/aJH1MfmasIdAG3YzjewW6q+5/G2AnUC1l+9aoSL7la5GHQ6VVEQ4GU4kT2tlAuIdDhRM/cdykVRrGglIigk2Wx+MV6AUI3+EmcqevDKeHM8N9MR4FfSVDtCL2+FyjIVGgCk7T7cXZ0PRN/I/ITOnQ+y/8JtHsciDrFVQ8FdmuOCj64OO1LQSjzuzlSZfBfbT2WdoJDbVsd7Y3Jp25ZRNTJxPKePBgFObOnnSVrPeLBig27+WqaViYPtlaOD5BFbXH2dSwAk9aVZw9pCwXcOXh/ftm2pm/4rlO8yqZQTPiWX4PruR5jEbMwli1W0DcaC+frbqgy2ooMe14zMkdNtZrsu72BB5FZUve462d2TrgrutEfqOzNfc/5KNc3v32Wi9cMKRrlLv+/AMOqgJfeQMAAA==
+    Metadata:
+      aws:cdk:path: EcsEc2Stack/CDKMetadata/Default
+    Condition: CDKMetadataAvailable
+Parameters:
+  SsmParameterValueawsserviceecsoptimizedamiamazonlinux2arm64recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/ecs/optimized-ami/amazon-linux-2/arm64/recommended/image_id
+Outputs:
+  myWebAppserviceLoadBalancerDNS3185BEF8:
+    Value:
+      Fn::GetAtt:
+        - myWebAppserviceLB2F5390E3
+        - DNSName
+  myWebAppserviceServiceURL41D7FC4E:
+    Value:
+      Fn::Join:
+        - ""
+        - - http://
+          - Fn::GetAtt:
+              - myWebAppserviceLB2F5390E3
+              - DNSName
+Conditions:
+  CDKMetadataAvailable:
+    Fn::Or:
+      - Fn::Or:
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - af-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-northeast-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-northeast-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-southeast-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ap-southeast-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - ca-central-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - cn-north-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - cn-northwest-1
+      - Fn::Or:
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-central-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-north-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-2
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - eu-west-3
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - me-south-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - sa-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-east-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-east-2
+      - Fn::Or:
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-west-1
+          - Fn::Equals:
+              - Ref: AWS::Region
+              - us-west-2
+

@@ -56,3 +56,5 @@ class EcsEc2Stack(cdk.Stack):
           },
           public_load_balancer=True
         )
+
+        load_balanced_service.target_group.set_attribute('deregistration_delay.timeout_seconds', '0')
